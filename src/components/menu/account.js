@@ -42,7 +42,7 @@ const customStyles = {
   };
 function Account() {
 
-  const { authenticate, isAuthenticated, logout, account, chainId } = useMoralis();
+  const { isAuthenticated, logout, account, chainId } = useMoralis();
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const onConnect = () => {
@@ -50,7 +50,7 @@ function Account() {
       alert("🦊 You must install Metamask, a virtual Ethereum wallet, in your browser.")
       return false;
     }
-    authenticate({ signingMessage: "Hello World!" })
+    // authenticate({ signingMessage: "Hello World!" })
   }
 
   if (!isAuthenticated) {

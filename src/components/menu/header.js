@@ -3,7 +3,7 @@ import Breakpoint, { BreakpointProvider, setDefaultBreakpoints } from "react-soc
 import { Link } from '@reach/router';
 import useOnclickOutside from "react-cool-onclickoutside";
 import Account from "./account";
-
+import { useMoralis } from "react-moralis";
 
 setDefaultBreakpoints([
   { xs: 0 },
@@ -28,10 +28,13 @@ const NavLink = props => (
 
 const Header= function() {
 
+  const { isAuthenticated } = useMoralis();
+
     const [openMenu, setOpenMenu] = React.useState(false);
     const [openMenu1, setOpenMenu1] = React.useState(false);
     const [openMenu2, setOpenMenu2] = React.useState(false);
     const [openMenu3, setOpenMenu3] = React.useState(false);
+
     const handleBtnClick = () => {
       setOpenMenu(!openMenu);
     };
@@ -302,8 +305,7 @@ const Header= function() {
                   <div>Connect Wallet</div>
                 </div> */}
 
-                <Account />
-
+                { isAuthenticated && <Account />}
 
               </div>
                   

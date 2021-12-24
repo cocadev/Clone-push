@@ -48,7 +48,7 @@ const GlobalStyles = createGlobalStyle`
 
 export const ProfilePage = () => {
 
-  const { user,  } = useMoralis();
+  const { user, account } = useMoralis();
 
   return (
     <div>
@@ -84,7 +84,7 @@ export const ProfilePage = () => {
                 <div className="spacer-10"></div>
 
                 <h5>Address</h5>
-                <input type="text" name="item_royalties" id="item_royalties" className="form-control" placeholder="Address" disabled value={user && user.get('ethAddress')} />
+                <input type="text" name="item_royalties" id="item_royalties" className="form-control" placeholder="Address" disabled value={account} />
 
                 <div className="spacer-10"></div>
 
