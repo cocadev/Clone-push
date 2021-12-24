@@ -5,6 +5,7 @@ import { useState } from "react";
 import Address from "./address";
 import { getExplorer } from "./networks";
 import Modal from 'react-modal';
+import { navigate } from "@reach/router";
 
 const styles = {
   account: {
@@ -102,6 +103,7 @@ function Account() {
           onClick={() => {
             logout();
             setIsModalVisible(false);
+            navigate('/')
           }}
         >
           Disconnect Wallet

@@ -22,9 +22,12 @@ import Createoption from './pages/createOptions';
 import Activity from './pages/activity';
 import Contact from './pages/contact';
 import { useMoralis } from 'react-moralis';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { createGlobalStyle } from 'styled-components';
 import Minter from './pages/Minter';
+import {ProfilePage} from './pages/profile';
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -88,10 +91,12 @@ const App = () => {
           <NewsSingle path="/news/:postId" />
           <Create path="/create" />
           <Createoption path="/createOptions" />
+          <ProfilePage path="/profile" />
 
         </ScrollTop>
       </PosedRouter>
       <ScrollToTopBtn />
+      <ToastContainer />
     </div>
   )
 };
