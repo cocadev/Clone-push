@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Breakpoint, { BreakpointProvider, setDefaultBreakpoints } from "react-socks";
 import { Link } from '@reach/router';
 import useOnclickOutside from "react-cool-onclickoutside";
+import Account from "./account";
 
 
 setDefaultBreakpoints([
@@ -311,9 +312,13 @@ const Header= function() {
               </BreakpointProvider>
 
               <div className='mainside'>
-                <div className='connect-wal'>
-                  <NavLink to="/wallet">Connect Wallet</NavLink>
-                </div>
+                {/* <div className='connect-wal btn-main cursor'>
+                  <div>Connect Wallet</div>
+                </div> */}
+
+                <Account />
+
+
                 <div className="logout">
                   <NavLink to="/createOptions">Create</NavLink>
                   <div id="de-click-menu-notification" className="de-menu-notification" onClick={() => btn_icon_not(!shownot)} ref={refpopnot}>
@@ -328,7 +333,7 @@ const Header= function() {
                           <ul>
                             <li>
                                 <div className="mainnot">
-                                    <img className="lazy" src="../../img/author/author-2.jpg" alt=""/>>
+                                    <img className="lazy" src="../../img/author/author-2.jpg" alt=""/>
                                     <div className="d-desc">
                                         <span className="d-name"><b>Mamie Barnett</b> started following you</span>
                                         <span className="d-time">1 hour ago</span>
@@ -337,7 +342,7 @@ const Header= function() {
                             </li>
                             <li>
                                 <div className="mainnot">
-                                    <img className="lazy" src="../../img/author/author-3.jpg" alt=""/>>
+                                    <img className="lazy" src="../../img/author/author-3.jpg" alt=""/>
                                     <div className="d-desc">
                                         <span className="d-name"><b>Nicholas Daniels</b> liked your item</span>
                                         <span className="d-time">2 hours ago</span>
@@ -346,7 +351,7 @@ const Header= function() {
                             </li>
                             <li>
                                 <div className="mainnot">
-                                    <img className="lazy" src="../../img/author/author-4.jpg" alt=""/>>
+                                    <img className="lazy" src="../../img/author/author-4.jpg" alt=""/>
                                     <div className="d-desc">
                                         <span className="d-name"><b>Lori Hart</b> started following you</span>
                                         <span className="d-time">18 hours ago</span>
@@ -355,7 +360,7 @@ const Header= function() {
                             </li>
                             <li>
                                 <div className="mainnot">
-                                    <img className="lazy" src="../../img/author/author-5.jpg" alt=""/>>
+                                    <img className="lazy" src="../../img/author/author-5.jpg" alt=""/>
                                     <div className="d-desc">
                                         <span className="d-name"><b>Jimmy Wright</b> liked your item</span>
                                         <span className="d-time">1 day ago</span>
@@ -364,7 +369,7 @@ const Header= function() {
                             </li>
                             <li>
                                 <div className="mainnot">
-                                    <img className="lazy" src="../../img/author/author-6.jpg" alt=""/>>
+                                    <img className="lazy" src="../../img/author/author-6.jpg" alt=""/>
                                     <div className="d-desc">
                                         <span className="d-name"><b>Karla Sharp</b> started following you</span>
                                         <span className="d-time">3 days ago</span>

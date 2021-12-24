@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Router, Location, Redirect } from '@reach/router';
 import ScrollToTopBtn from './menu/ScrollToTop';
 import Header from './menu/header';
@@ -21,8 +21,10 @@ import Create from './pages/create';
 import Createoption from './pages/createOptions';
 import Activity from './pages/activity';
 import Contact from './pages/contact';
+import { useMoralis } from 'react-moralis';
 
 import { createGlobalStyle } from 'styled-components';
+import Minter from './pages/Minter';
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -31,7 +33,7 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 export const ScrollTop = ({ children, location }) => {
-  React.useEffect(() => window.scrollTo(0,0), [location])
+  React.useEffect(() => window.scrollTo(0, 0), [location])
   return children
 }
 
@@ -49,38 +51,49 @@ const PosedRouter = ({ children }) => (
   </Location>
 );
 
-const app= () => (
-  <div className="wraper">
-  <GlobalStyles />
-    <Header/>
-      <PosedRouter>
-      <ScrollTop path="/">
-        <Home exact path="/">
-          <Redirect to="/home" />
-        </Home>
-        <Explore path="/explore" />
-        <Colection path="/colection/:collectionId" />
-        <Auction path="/Auction" />
-        <ItemDetailRedux path="/ItemDetail/:nftId" />
-        <Helpcenter path="/helpcenter" />
-        <Author path="/Author/:authorId" />
-        <Works path="/works" />
-        <Wallet path="/wallet" />
-        <Login path="/login" />
-        <Register path="/register" />
-        <Contact path="/contact" />
-        <Activity path="/activity" />
-        <RankingRedux path="/rangking" />
+const App = () => {
+  const { isWeb3Enabled, enableWeb3, isAuthenticated, isWeb3EnableLoading } = useMoralis();
 
-        <Price path="/price" />
-        <News path="/news" />
-        <NewsSingle path="/news/:postId" />
-        <Create path="/create" />
-        <Createoption path="/createOptions" />
+  useEffect(() => {
+    if (isAuthenticated && !isWeb3Enabled && !isWeb3EnableLoading) enableWeb3();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isAuthenticated, isWeb3Enabled]);
+
+  return (
+    <div className="wraper">
+      <GlobalStyles />
+      <Header />
+      <PosedRouter>
+        <ScrollTop path="/">
+          <Home exact path="/">
+            <Redirect to="/home" />
+          </Home>
+          <Explore path="/explore" />
+          <Colection path="/colection/:collectionId" />
+          <Auction path="/Auction" />
+          <ItemDetailRedux path="/ItemDetail/:nftId" />
+          <Helpcenter path="/helpcenter" />
+          <Author path="/Author/:authorId" />
+          <Works path="/works" />
+          <Wallet path="/wallet" />
+          <Login path="/login" />
+          <Register path="/register" />
+          <Contact path="/contact" />
+          <Activity path="/activity" />
+          <RankingRedux path="/rangking" />
+          <Minter path="/minter" />
+
+          <Price path="/price" />
+          <News path="/news" />
+          <NewsSingle path="/news/:postId" />
+          <Create path="/create" />
+          <Createoption path="/createOptions" />
 
         </ScrollTop>
       </PosedRouter>
-    <ScrollToTopBtn />
-  </div>
-);
-export default app;
+      <ScrollToTopBtn />
+    </div>
+  )
+};
+
+export default App;
