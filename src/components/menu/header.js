@@ -107,6 +107,7 @@ const Header= function() {
                     src="/img/logo.png"
                     className="img-fluid d-block"
                     alt="#"
+                    style={{ width: 200}}
                   />
                   <img
                     src="/img/logo-2.png"
