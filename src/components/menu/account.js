@@ -5,7 +5,7 @@ import { useState } from "react";
 import Address from "./address";
 import { getExplorer } from "./networks";
 import Modal from 'react-modal';
-import { navigate } from "@reach/router";
+// import { navigate } from "@reach/router";
 
 const styles = {
   account: {
@@ -42,7 +42,7 @@ const customStyles = {
   };
 function Account() {
 
-  const { isAuthenticated, logout, account, chainId } = useMoralis();
+  const { isAuthenticated, logout, account, chainId, authenticate } = useMoralis();
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const onConnect = () => {
@@ -50,13 +50,13 @@ function Account() {
       alert("🦊 You must install Metamask, a virtual Ethereum wallet, in your browser.")
       return false;
     }
-    // authenticate({ signingMessage: "Hello World!" })
+    authenticate({ signingMessage: "Hello World!" })
   }
 
   if (!isAuthenticated) {
     return (
       <div style={styles.account} onClick={onConnect}>
-        <p style={styles.text}>Authenticate</p>
+        <p style={styles.text}>Connect Wallet</p>
       </div>
     );
   }
@@ -103,7 +103,7 @@ function Account() {
           onClick={() => {
             logout();
             setIsModalVisible(false);
-            navigate('/')
+            // navigate('/')
           }}
         >
           Disconnect Wallet

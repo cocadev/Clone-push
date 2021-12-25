@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import Breakpoint, { BreakpointProvider, setDefaultBreakpoints } from "react-socks";
 import { Link } from '@reach/router';
 import useOnclickOutside from "react-cool-onclickoutside";
-import Account from "./account";
-import { useMoralis } from "react-moralis";
 
 setDefaultBreakpoints([
   { xs: 0 },
@@ -24,11 +22,7 @@ const NavLink = props => (
   />
 );
 
-
-
 const Header= function() {
-
-  const { isAuthenticated } = useMoralis();
 
     const [openMenu, setOpenMenu] = React.useState(false);
     const [openMenu1, setOpenMenu1] = React.useState(false);
@@ -297,6 +291,13 @@ const Header= function() {
                       <span className='lines'></span>
                       </NavLink>
                     </div>
+
+                    <div className='navbar-item' style={{marginTop: -5, marginLeft: 20}}>
+                      <NavLink to="/auth">
+                        <div className="btn-main">Authenticate</div>
+                      <span className='lines'></span>
+                      </NavLink>
+                    </div>
                   </div>
                 </Breakpoint>
               </BreakpointProvider>
@@ -306,7 +307,8 @@ const Header= function() {
                   <div>Connect Wallet</div>
                 </div> */}
 
-                { isAuthenticated && <Account />}
+                {/* { isAuthenticated && <Account />} */}
+
 
               </div>
                   

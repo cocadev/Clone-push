@@ -3,7 +3,7 @@ import Footer from '../components/footer';
 import { createGlobalStyle } from 'styled-components';
 import { toast } from 'react-toastify';
 import { useMoralis } from 'react-moralis';
-import { navigate } from '@reach/router';
+// import { navigate } from '@reach/router';
 
 const GlobalStyles = createGlobalStyle`
   header#myHeader.navbar.sticky.white {
@@ -43,7 +43,7 @@ const GlobalStyles = createGlobalStyle`
 
 const Register = () => {
 
-  const { signup, authError, user } = useMoralis();
+  const { Moralis } = useMoralis();
   const [email, setEmail] = useState("");
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -54,19 +54,19 @@ const Register = () => {
     if (password === rePassword && password && rePassword && userName && email) {
 
       // setIsLoading(true);
+      const user = new Moralis.User();
+      user.set("username", userName);
+      user.set("password", password);
+      user.set("email", email);
 
-      await signup(
-        userName, 
-        password, 
-        email, 
-        {ethAddress: (user && user.get("ethAddress")) ? user.get("ethAddress") : null}
-      )
-
-      if (authError) {
-        toast.error(authError.message);
-      } else {
+      try {
+        await user.signUp();
+        alert("succesfully Signed up");
         toast("Congratulations! The signup Success!");
-        navigate('/profile')
+        // Hooray! Let them use the app now.
+      } catch (error) {
+        // Show the error message somewhere and let the user try again.
+        toast.error("Error: " + error.code + " " + error.message);
       }
       // setIsLoading(false);
     } else {
@@ -96,6 +96,7 @@ const Register = () => {
         <div className="row">
 
           <div className="col-md-8 offset-md-2">
+            
             <h3>Don't have an account? Register now.</h3>
             <p>Email is optional, but if you may have trouble recovering your account, so it may be worthwhile.</p>
 

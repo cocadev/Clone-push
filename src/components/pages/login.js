@@ -40,14 +40,9 @@ const GlobalStyles = createGlobalStyle`
 
 const Login = () => {
 
-  const { login, isAuthenticated, user, authError } = useMoralis();
+  const { login, authError } = useMoralis();
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  // const [isLoading, setIsLoading] = useState(false);
-
-  console.log('+ username +', user?.get('username'));
-  console.log('+ address +', user?.get('ethAddress'));
-  console.log('+ isAuthenticated +', isAuthenticated);
 
   const onLogin = async () => {
     if(userName && password){

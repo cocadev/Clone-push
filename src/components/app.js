@@ -21,6 +21,8 @@ import Create from './pages/create';
 import Createoption from './pages/createOptions';
 import Activity from './pages/activity';
 import Contact from './pages/contact';
+import Auth from './pages/auth';
+
 import { useMoralis } from 'react-moralis';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -85,6 +87,7 @@ const App = () => {
           <Activity path="/activity" />
           <RankingRedux path="/rangking" />
           <Minter path="/minter" />
+          <Auth path="/auth" />
 
           <Price path="/price" />
           <News path="/news" />
