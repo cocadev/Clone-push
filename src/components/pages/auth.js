@@ -6,6 +6,7 @@ import { useMoralis } from 'react-moralis';
 // import { navigate } from '@reach/router';
 import { Tabs, Tab } from "react-bootstrap";
 import Account from '../menu/account';
+import { navigate } from '@reach/router';
 
 const GlobalStyles = createGlobalStyle`
   header#myHeader.navbar.sticky.white {
@@ -45,26 +46,27 @@ const Auth = () => {
 
   const { Moralis, user, login, logout, isAuthenticated } = useMoralis();
   const [email, setEmail] = useState("");
-  const [userName, setUserName] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
+  const [isForgot, setIsForgot] = useState(false);
   // const [isLoading, setIsLoading] = useState(false);
 
   const onRegister = async () => {
-    if (password === rePassword && password && rePassword && userName && email) {
+    if (password === rePassword && password && rePassword && username && email) {
 
       // setIsLoading(true);
       const me = new Moralis.User();
-      me.set("username", userName);
+      me.set("username", username);
       me.set("password", password);
       me.set("email", email);
 
       try {
+        console.log('---')
         await me.signUp();
         toast("Congratulations! The signup Success!");
-        // Hooray! Let them use the app now.
+        navigate('/profile')
       } catch (error) {
-        // Show the error message somewhere and let the user try again.
         toast.error("Error: " + error.code + " " + error.message);
       }
       // setIsLoading(false);
@@ -75,11 +77,11 @@ const Auth = () => {
   };
 
   const onLogin = async () => {
-    if (userName && password) {
+    if (username && password) {
       try {
-        await login(userName, password);
+        await login(username, password);
         toast("Congratulations! The login Success!");
-        // navigate('/profile')
+        navigate('/profile')
       } catch (error) {
         toast.error("Error: " + error.code + " " + error.message);
       }
@@ -117,7 +119,7 @@ const Auth = () => {
               <div id="tabs2">
                 <Tabs fill defaultActiveKey="home">
 
-                  <Tab eventKey="home" title="Sign up Email">
+                  <Tab eventKey="home" title="Sign up using Email">
                     <div>
                       <br /><br />
                       <h3>Don't have an account? Register now.</h3>
@@ -141,8 +143,8 @@ const Auth = () => {
                           <div className="field-set">
                             <label>Choose a Username:</label>
                             <input type='text' name='username' id='username' className="form-control"
-                              value={userName}
-                              onChange={(e) => setUserName(e.target.value)}
+                              value={username}
+                              onChange={(e) => setUsername(e.target.value)}
                             />
                           </div>
                         </div>
@@ -168,7 +170,7 @@ const Auth = () => {
                         </div>
 
                         <div className="col-md-12">
-                          <div id='submit' className="pull-left" onClick={onRegister}>
+                          <div className="pull-left" onClick={onRegister}>
                             <div className="btn-main">Register Now</div>
                           </div>
 
@@ -178,10 +180,9 @@ const Auth = () => {
                       </div>
                     </div>
                   </Tab>
-                  <Tab eventKey="profile" title="Sign in Email">
+                  <Tab eventKey="profile" title="Sign in using Email">
                     <br /><br />
-                    <div>
-                      <div className="">
+                    {!isForgot && <div>
                         <h3 className="mb10">Sign In</h3>
                         <p>Login using an existing account or create a new account</p>
 
@@ -190,8 +191,8 @@ const Auth = () => {
                             <div className="field-set">
                               <label>Username:</label>
                               <input type='text' name='Username' id='Username' className="form-control"
-                                value={userName}
-                                onChange={(e) => setUserName(e.target.value)}
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
                               />
                             </div>
                           </div>
@@ -205,11 +206,14 @@ const Auth = () => {
                               />
                             </div>
                           </div>
+
+                          <div className='flex-right underline cursor' onClick={()=>setIsForgot(!isForgot)}>Forgot Password</div>
+                          <br/>
                         </div>
 
 
                         <div className="col-md-12">
-                          <div id='submit' className="pull-left" onClick={onLogin}>
+                          <div className="pull-left" onClick={onLogin}>
                             <div className="btn-main">Login Now</div>
                           </div>
 
@@ -220,31 +224,50 @@ const Auth = () => {
 
                         <div className="spacer-single"></div>
 
-                      </div>
-                    </div>
+                    </div>}
+                    {isForgot && <div>
+                        <h3 className="mb10">
+                        <span aria-hidden="true" className="arrow_left cursor" onClick={()=>setIsForgot(false)}></span> &nbsp;
+                        Forgot Password</h3>
+                        <p>Enter your email to reset the password</p>
+
+                        <div className='row'>
+                          <div className="col-md-6">
+                            <div className="field-set">
+                              <label>Email:</label>
+                              <input type='text' name='email' id='email' className="form-control"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                              />
+                            </div>
+                          </div>
+
+                          <br/>
+                        </div>
+
+                        <div className="col-md-12">
+                          <div className="pull-left" onClick={()=>alert('comming soon!')}>
+                            <div className="btn-main">Send Request</div>
+                          </div>
+
+                          <div className="clearfix"></div>
+                        </div>
+
+                        <div className="clearfix"></div>
+
+                        <div className="spacer-single"></div>
+
+                    </div>}
                   </Tab>
+
                   <Tab eventKey="metamask" title="Sign up/in Metamask">
                     <br /><br />
-                    <div>
+                    <div style={{display: 'flex', justifyContent: 'center'}}>
                       <Account />
                     </div>
                   </Tab>
-                  <Tab eventKey="welcome" title="Send Welcome Email">
-                    <br /><br />
-                    <div>
-                      <p style={{ textAlign: 'center' }}>
-                        Comming Soon!
-                      </p>
-                    </div>
-                  </Tab>
-                  <Tab eventKey="reset" title="Reset Password">
-                    <br /><br />
-                    <div>
-                      <p style={{ textAlign: 'center' }}>
-                        Comming Soon!
-                      </p>
-                    </div>
-                  </Tab>
+
+               
                 </Tabs>
               </div>
             </div>

@@ -8,6 +8,8 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.js';
 import './assets/style.scss';
 import './assets/style_grey.scss';
+import './assets/custom.scss';
+
 import App from './components/app';
 import * as serviceWorker from './serviceWorker';
 import { MoralisProvider } from "react-moralis";

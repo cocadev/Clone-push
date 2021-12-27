@@ -31,9 +31,9 @@ const slidermainparticle= () => (
     <div className="row align-items-center">
           <div className="col-md-6">
               <div className="spacer-single"></div>
-              <h6> <span className="text-uppercase color">Gigaland Market</span></h6>
+              <h6> <span className="text-uppercase color">Metasalt NFTs</span></h6>
               <Reveal className='onStep' keyframes={fadeInUp} delay={300} duration={900} triggerOnce>
-              <h1 className="col-white">Create, sell or collect digital items.</h1>
+              <h1 className="col-white">Create, buy, and sell NFTs of anything</h1>
               </Reveal>
               <Reveal className='onStep' keyframes={fadeInUp} delay={600} duration={900} triggerOnce>
               <p className="lead col-white">
@@ -67,7 +67,7 @@ const slidermainparticle= () => (
                           <div className="col-lg-4 col-md-6 col-sm-4 mb30">
                               <div className="de_count text-left">
                                   <h3><span>4</span>k</h3>
-                                  <h5 className="id-color">NFT Artist</h5>
+                                  <h5 className="id-color">NFT Creator</h5>
                               </div>
                           </div>
                       </div>

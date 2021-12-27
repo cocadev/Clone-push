@@ -1,0 +1,110 @@
+/* CSS Document */
+
+
+/* 
+*
+*
+[Table of contents]
+*
+*
+*
+
+  color / $white
+  font / @import 
+  general / html
+  dropdown / .dropdown-custom.btn
+  navbar / .navbar
+  breadcumb / .breadcumb
+  home / .subheading
+  icon scroll / .icon-scroll-wraper
+  footer / footer
+  portofolio / AppContainer
+  contact / .form-side
+  news / .post-content
+  create file / .d-create-file
+  activity / .filter__l
+  feature box / .feature-box .inner
+  column nft / .nft_coll
+  countdown / .de_countdown
+  author list / .author_list
+  icon box / .icon-box 
+  carousel / .d-carousel
+  filter / .items_filter
+  colection / #profile_banner 
+  item details / .item_info
+  wallet / .box-url 
+  login / .field-set label
+  all icon / .demo-icon-wrap-s2 
+  element / .card-header
+  media all / @media only screen and (max-width: 1199px)
+
+*/
+
+/*color*/
+$white: #fff;
+$gray: #bbb;
+$black: #111;
+$general: #727272;
+$black_soft: #333;
+$black_col: #2e333c;
+$black_more: #0f0f0f;
+$color: #8364E2;
+$color_more: #403f83;
+.col-white{
+  color: $white;
+}
+
+/*font*/
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@200;300;400;500;600;700;800&display=swap');
+
+
+.center-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%
+}
+
+.w-full {
+  width: 100%
+}
+
+.flex-right {
+  display: flex;
+  justify-content: flex-end;
+}
+.btn-center {
+  text-align: center;
+  color: #fff !important;
+  background: #8364E2;
+  border-radius: 6px;
+  letter-spacing: normal;
+  outline: 0;
+  font-weight: 800;
+  text-decoration: none;
+  padding: 8px 40px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 2px 2px 20px 0px rgba(131, 100, 226, 0);
+  transition: all 0.3s ease;
+  &:hover{
+    box-shadow: 2px 2px 20px 0px rgba(131, 100, 226, 0.5);
+    transition: all 0.3s ease;
+  }
+  &.inline{
+    display: inline-block;
+    margin-right: 15px;
+    &.white{
+      color: $color_more !important;
+      background:$white;
+    }
+  }
+}
+
+.underline {
+  text-decoration: underline;
+}
+.cursor {
+  cursor: pointer;
+}

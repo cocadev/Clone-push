@@ -31,9 +31,9 @@ const slidermainparticle= () => (
     <div className="row align-items-center">
           <div className="col-md-6">
               <div className="spacer-single"></div>
-              <h6> <span className="text-uppercase color">Gigaland Market</span></h6>
+              <h6> <span className="text-uppercase color">Metasalt NFTs</span></h6>
               <Reveal className='onStep' keyframes={fadeInUp} delay={300} duration={900} triggerOnce>
-              <h1 className="col-white">Discover <span className="color">rare</span> digital art and collect NFTs</h1>
+              <h1 className="col-white">Discover <span className="color">NFTs</span> of any valuable physical or digital item</h1>
               </Reveal>
               <Reveal className='onStep' keyframes={fadeInUp} delay={600} duration={900} triggerOnce>
               <p className="lead col-white">

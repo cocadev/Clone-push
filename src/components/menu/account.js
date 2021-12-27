@@ -50,7 +50,7 @@ function Account() {
       alert("🦊 You must install Metamask, a virtual Ethereum wallet, in your browser.")
       return false;
     }
-    authenticate({ signingMessage: "Hello World!" })
+    authenticate();
   }
 
   if (!isAuthenticated) {

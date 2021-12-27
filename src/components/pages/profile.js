@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Footer from '../components/footer';
 import { createGlobalStyle } from 'styled-components';
 import { useMoralis } from "react-moralis";
@@ -49,6 +49,7 @@ const GlobalStyles = createGlobalStyle`
 export const ProfilePage = () => {
 
   const { user, account } = useMoralis();
+  const [email, setEmail] = useState();
 
   return (
     <div>
@@ -74,7 +75,10 @@ export const ProfilePage = () => {
               <div className="field-set">
 
                 <h5>Email</h5>
-                <input type="text" name="item_title" id="item_title" className="form-control" placeholder="Email" disabled value={user && user.get('email')} />
+                <input type="text" name="emal" className="form-control" placeholder="Email" 
+                  value={email || (user && user.get('email'))} 
+                  onChange={(e) => setEmail(e.target.value)}
+                />
 
                 <div className="spacer-10"></div>
 
@@ -89,6 +93,10 @@ export const ProfilePage = () => {
                 <div className="spacer-10"></div>
 
                 {/* <input type="button" id="submit" className="btn-main" value="Create Item"/> */}
+
+                {!account && <div className="alert alert-danger" role="alert">
+                  Sign up Metamask to transact and mint NFTs!
+                </div>}
               </div>
             </form>
           </div>
@@ -96,13 +104,12 @@ export const ProfilePage = () => {
           <div className="col-lg-3 col-sm-6 col-xs-12">
             <h5>Profile Image</h5>
             <div className="nft__item m-0">
-
               <div className="nft__item_wrap">
                 <span>
                   <img src="./img/author/author-11.jpg" id="get_file_2" className="lazy nft__item_preview" alt="" />
+                  <div className="btn-center mt-3">Upload</div>
                 </span>
               </div>
-
             </div>
           </div>
         </div>
