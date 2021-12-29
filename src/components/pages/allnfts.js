@@ -81,6 +81,9 @@ const AllNFTs = () => {
         <div className='flex flex-wrap center mt-30' style={{ alignItems: 'center', justifyContent: 'center' }}>
           {
             allData.map((item, index) => {
+              if(!item.metadata){
+                return null
+              }
               const { name, image, price } = JSON.parse(item.metadata)
               return (
                 <div key={index}>
