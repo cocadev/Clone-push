@@ -24,6 +24,9 @@ const GlobalStyles = createGlobalStyle`
   header#myHeader .logo .d-none{
     display: block !important;
   }
+  .demo-icon-wrap-s2 span {
+    color: #fff;
+  }
   .mainside{
     .connect-wal{
       display: none;

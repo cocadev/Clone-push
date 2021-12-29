@@ -29,6 +29,9 @@ const GlobalStyles = createGlobalStyle`
   header#myHeader .logo .d-none{
     display: block !important;
   }
+  .demo-icon-wrap-s2 span {
+    color: #fff;
+  }
   @media only screen and (max-width: 1199px) {
     .navbar{
       background: #403f83;

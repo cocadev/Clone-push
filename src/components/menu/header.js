@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Breakpoint, { BreakpointProvider, setDefaultBreakpoints } from "react-socks";
 import { Link } from '@reach/router';
 import useOnclickOutside from "react-cool-onclickoutside";
+import { useMoralis } from "react-moralis";
+import { toast } from "react-toastify";
 
 setDefaultBreakpoints([
   { xs: 0 },
@@ -24,9 +26,12 @@ const NavLink = props => (
 
 const Header = function () {
 
-  const [openMenu, setOpenMenu] = React.useState(false);
-  const [openMenu1, setOpenMenu1] = React.useState(false);
-  const [openMenu2, setOpenMenu2] = React.useState(false);
+  const { isAuthenticated, logout } = useMoralis();
+  const [openMenu, setOpenMenu] = useState(false);
+  const [openMenu1, setOpenMenu1] = useState(false);
+  const [openMenu2, setOpenMenu2] = useState(false);
+  const [openMenu3, setOpenMenu3] = useState(false);
+  const [openMenu4, setOpenMenu4] = useState(false);
 
   const handleBtnClick = () => {
     setOpenMenu(!openMenu);
@@ -37,6 +42,12 @@ const Header = function () {
   const handleBtnClick2 = () => {
     setOpenMenu2(!openMenu2);
   };
+  const handleBtnClick3 = () => {
+    setOpenMenu3(!openMenu3);
+  };
+  const handleBtnClick4 = () => {
+    setOpenMenu4(!openMenu4);
+  };
   const closeMenu = () => {
     setOpenMenu(false);
   };
@@ -46,7 +57,12 @@ const Header = function () {
   const closeMenu2 = () => {
     setOpenMenu2(false);
   };
-
+  const closeMenu3 = () => {
+    setOpenMenu3(false);
+  };
+  const closeMenu4 = () => {
+    setOpenMenu4(false);
+  };
   const ref = useOnclickOutside(() => {
     closeMenu();
   });
@@ -56,7 +72,12 @@ const Header = function () {
   const ref2 = useOnclickOutside(() => {
     closeMenu2();
   });
-
+  const ref3 = useOnclickOutside(() => {
+    closeMenu3();
+  });
+  const ref4 = useOnclickOutside(() => {
+    closeMenu4();
+  });
   const [showmenu, btn_icon] = useState(false);
 
   useEffect(() => {
@@ -80,6 +101,12 @@ const Header = function () {
       window.removeEventListener("scroll", scrollCallBack);
     };
   }, []);
+
+  const onLogout = () => {
+    logout();
+    toast.info('You have been logged out successfully.')
+  }
+
   return (
     <header id="myHeader" className='navbar white'>
       <div className='container'>
@@ -120,17 +147,7 @@ const Header = function () {
             <Breakpoint l down>
               {showmenu &&
                 <div className='menu'>
-                  <div className='navbar-item'>
-                    <div ref={ref}>
-                      <NavLink to="/"><div className="dropdown-custom btn"
-                        onClick={handleBtnClick}
-                      >
-                        Home
-                      </div>
-                      </NavLink>
 
-                    </div>
-                  </div>
                   <div className='navbar-item'>
                     <div ref={ref1}>
                       <div className="dropdown-custom dropdown-toggle btn"
@@ -141,65 +158,94 @@ const Header = function () {
                       {openMenu1 && (
                         <div className='item-dropdown'>
                           <div className="dropdown" onClick={closeMenu1}>
-                            <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>Explore</NavLink>
-                            <NavLink to="/rangking" onClick={() => btn_icon(!showmenu)}>Rangking</NavLink>
-                            <NavLink to="/colection/1" onClick={() => btn_icon(!showmenu)}>Collection</NavLink>
-                            <NavLink to="/ItemDetail/1" onClick={() => btn_icon(!showmenu)}>Items Details</NavLink>
-                            <NavLink to="/Auction" onClick={() => btn_icon(!showmenu)}>Live Auction</NavLink>
-                            <NavLink to="/helpcenter" onClick={() => btn_icon(!showmenu)}>Help Center</NavLink>
+                            <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>All NFTs</NavLink>
+                            <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>New</NavLink>
+                            <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>Art</NavLink>
+                            <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>Collectibles</NavLink>
+                            <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>Music</NavLink>
+                            <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>Sports</NavLink>
                           </div>
                         </div>
                       )}
                     </div>
                   </div>
+
                   <div className='navbar-item'>
                     <div ref={ref2}>
                       <div className="dropdown-custom dropdown-toggle btn"
                         onClick={handleBtnClick2}
                       >
-                        Pages
+                        Stats
                       </div>
                       {openMenu2 && (
                         <div className='item-dropdown'>
                           <div className="dropdown" onClick={closeMenu2}>
-                            <NavLink to="/profile" onClick={() => btn_icon(!showmenu)}>Profile</NavLink>
-                            <NavLink to="/Author/1" onClick={() => btn_icon(!showmenu)}>Author</NavLink>
+                            <NavLink to="/rangking" onClick={() => btn_icon(!showmenu)}>Rangking</NavLink>
+                            <NavLink to="/activity" onClick={() => btn_icon(!showmenu)}>Activity</NavLink>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className='navbar-item'>
+                    <div ref={ref3}>
+                      <div className="dropdown-custom dropdown-toggle btn"
+                        onClick={handleBtnClick3}
+                      >
+                        Resources
+                      </div>
+                      {openMenu3 && (
+                        <div className='item-dropdown'>
+                          <div className="dropdown" onClick={closeMenu3}>
+                            <NavLink to="/helpcenter" onClick={() => btn_icon(!showmenu)}>Help Center</NavLink>
                             <NavLink to="/wallet" onClick={() => btn_icon(!showmenu)}>Wallet</NavLink>
-                            {/* <NavLink to="/create" onClick={() => btn_icon(!showmenu)}>Create</NavLink> */}
-                            {/* <NavLink to="/mint" onClick={() => btn_icon(!showmenu)}>Nft Minting</NavLink> */}
                             <NavLink to="/news" onClick={() => btn_icon(!showmenu)}>News</NavLink>
                             <NavLink to="/works" onClick={() => btn_icon(!showmenu)}>Gallery</NavLink>
-                            {/* <NavLink to="/login" onClick={() => btn_icon(!showmenu)}>login</NavLink> */}
-                            {/* <NavLink to="/register" onClick={() => btn_icon(!showmenu)}>Register</NavLink> */}
                             <NavLink to="/contact" onClick={() => btn_icon(!showmenu)}>Contact Us</NavLink>
                           </div>
                         </div>
                       )}
                     </div>
                   </div>
+
                   <div className='navbar-item'>
-                    <NavLink to="/activity" onClick={() => btn_icon(!showmenu)}>
-                      Activity
-                      <span className='lines'></span>
-                    </NavLink>
+                    <div ref={ref}>
+                      <NavLink to="/create"><div className="dropdown-custom btn"
+                        onClick={handleBtnClick}
+                      >
+                        Create
+                      </div>
+                      </NavLink>
+
+                    </div>
+                  </div>
+
+                  <div className='navbar-item'>
+                    <div ref={ref4}>
+                      <div className="dropdown-custom dropdown-toggle btn"
+                        onClick={handleBtnClick4}
+                      >
+                        Profile
+                      </div>
+                      {openMenu4 && (
+                        <div className='item-dropdown'>
+                          <div className="dropdown" onClick={closeMenu4}>
+                            <NavLink to={isAuthenticated ? "/profile" : "/auth"} onClick={() => btn_icon(!showmenu)}>Profile</NavLink>
+                            <NavLink to="/Author/1" onClick={() => btn_icon(!showmenu)}>My Collections</NavLink>
+                            {isAuthenticated && <a href="/" onClick={onLogout}>Log Out</a>}
+                          </div>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
               }
             </Breakpoint>
 
+            {/* Full Desktop */}
             <Breakpoint xl>
               <div className='menu'>
-                <div className='navbar-item'>
-                  <div ref={ref}>
-                    <NavLink to="/">
-                      <div className="dropdown-custom btn"
-                        onMouseEnter={handleBtnClick} onMouseLeave={closeMenu}>
-                        Home
-                        <span className='lines'></span>
-                      </div>
-                    </NavLink>
-                  </div>
-                </div>
                 <div className='navbar-item'>
                   <div ref={ref1}>
                     <div className="dropdown-custom dropdown-toggle btn"
@@ -209,12 +255,12 @@ const Header = function () {
                       {openMenu1 && (
                         <div className='item-dropdown'>
                           <div className="dropdown" onClick={closeMenu1}>
-                            <NavLink to="/explore">Explore</NavLink>
-                            <NavLink to="/rangking">Rangking</NavLink>
-                            <NavLink to="/colection/1">Collection</NavLink>
-                            <NavLink to="/ItemDetail/1">Items Details</NavLink>
-                            <NavLink to="/Auction">Live Auction</NavLink>
-                            <NavLink to="/helpcenter">Help Center</NavLink>
+                            <NavLink to="/explore">All NFTs</NavLink>
+                            <NavLink to="/explore">New</NavLink>
+                            <NavLink to="/explore">Art</NavLink>
+                            <NavLink to="/explore">Collectibles</NavLink>
+                            <NavLink to="/explore">Music</NavLink>
+                            <NavLink to="/explore">Sports</NavLink>
                           </div>
                         </div>
                       )}
@@ -222,23 +268,38 @@ const Header = function () {
 
                   </div>
                 </div>
+
                 <div className='navbar-item'>
                   <div ref={ref2}>
                     <div className="dropdown-custom dropdown-toggle btn"
                       onMouseEnter={handleBtnClick2} onMouseLeave={closeMenu2}>
-                      Pages
+                      Stats
                       <span className='lines'></span>
                       {openMenu2 && (
                         <div className='item-dropdown'>
                           <div className="dropdown" onClick={closeMenu2}>
-                            <NavLink to="/profile">Profile</NavLink>
-                            <NavLink to="/Author/1">Author</NavLink>
+                            <NavLink to="/rangking">Rangking</NavLink>
+                            <NavLink to="/activity">Activity</NavLink>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                <div className='navbar-item'>
+                  <div ref={ref3}>
+                    <div className="dropdown-custom dropdown-toggle btn"
+                      onMouseEnter={handleBtnClick3} onMouseLeave={closeMenu3}>
+                      Resources
+                      <span className='lines'></span>
+                      {openMenu3 && (
+                        <div className='item-dropdown'>
+                          <div className="dropdown" onClick={closeMenu3}>
+                            <NavLink to="/helpcenter">Help Center</NavLink>
                             <NavLink to="/wallet">Wallet</NavLink>
-                            {/* <NavLink to="/create">Create</NavLink> */}
                             <NavLink to="/news">News</NavLink>
                             <NavLink to="/works">Gallery</NavLink>
-                            {/* <NavLink to="/login">login</NavLink> */}
-                            {/* <NavLink to="/register">Register</NavLink> */}
                             <NavLink to="/contact">Contact Us</NavLink>
                           </div>
                         </div>
@@ -246,19 +307,39 @@ const Header = function () {
                     </div>
                   </div>
                 </div>
+
                 <div className='navbar-item'>
-                  <NavLink to="/activity">
-                    Activity
-                    <span className='lines'></span>
-                  </NavLink>
+                  <div ref={ref}>
+                    <NavLink to="/create">
+                      <div className="dropdown-custom btn"
+                        onMouseEnter={handleBtnClick} onMouseLeave={closeMenu}>
+                        Create
+                        <span className='lines'></span>
+                      </div>
+                    </NavLink>
+                  </div>
                 </div>
 
-                <div className='navbar-item' style={{ marginTop: -5, marginLeft: 20 }}>
-                  <NavLink to="/auth">
-                    <div className="btn-main">Authenticate</div>
-                    <span className='lines'></span>
-                  </NavLink>
+                <div className='navbar-item' style={{marginTop: -10, marginLeft: 10}}>
+                  <div ref={ref4}>
+                    <div className="dropdown-custom btn"
+                      onMouseEnter={handleBtnClick4} onMouseLeave={closeMenu4}>
+                      <div className="demo-icon-wrap-s2">
+                        <span aria-hidden="true" className="icon_profile"></span>
+                      </div>
+                      {openMenu4 && (
+                        <div className='item-dropdown'>
+                          <div className="dropdown" onClick={closeMenu4}>
+                            <NavLink to={isAuthenticated ? "/profile" : "/auth"}>Profile</NavLink>
+                            <NavLink to="/Author/1">My Collections</NavLink>
+                            {isAuthenticated && <a onClick={onLogout} href="/">Log Out</a>}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </div>
+
               </div>
             </Breakpoint>
           </BreakpointProvider>
