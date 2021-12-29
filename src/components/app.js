@@ -22,6 +22,8 @@ import Createoption from './pages/createOptions';
 import Activity from './pages/activity';
 import Contact from './pages/contact';
 import Auth from './pages/auth';
+import AllNFTs from './pages/allnfts';
+
 
 import { useMoralis } from 'react-moralis';
 import { ToastContainer } from 'react-toastify';
@@ -88,6 +90,7 @@ const App = () => {
           <RankingRedux path="/rangking" />
           <Minter path="/minter" />
           <Auth path="/auth" />
+          <AllNFTs path="/allnfts" />
 
           <Price path="/price" />
           <News path="/news" />

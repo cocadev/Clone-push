@@ -112,7 +112,8 @@ $color_more: #403f83;
 .flex {
   display: flex;
 }
-.row {
+.d-row {
+  display: flex;
   flex-direction: row;
 }
 .align-center {
@@ -121,7 +122,22 @@ $color_more: #403f83;
 .justify-center {
   justify-content: center;
 }
-
+.justify-betwen {
+  justify-content: space-between;
+}
 .ml-10 {
   margin-left: 10px;
+}
+.mt-10 {
+  margin-top: 10px;
+}
+
+.f-14 {
+  font-size: 13px;
+}
+
+.d-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -158,7 +158,7 @@ const Header = function () {
                       {openMenu1 && (
                         <div className='item-dropdown'>
                           <div className="dropdown" onClick={closeMenu1}>
-                            <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>All NFTs</NavLink>
+                            <NavLink to="/allnfts" onClick={() => btn_icon(!showmenu)}>All NFTs</NavLink>
                             <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>New</NavLink>
                             <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>Art</NavLink>
                             <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>Collectibles</NavLink>
@@ -255,7 +255,7 @@ const Header = function () {
                       {openMenu1 && (
                         <div className='item-dropdown'>
                           <div className="dropdown" onClick={closeMenu1}>
-                            <NavLink to="/explore">All NFTs</NavLink>
+                            <NavLink to="/allnfts">All NFTs</NavLink>
                             <NavLink to="/explore">New</NavLink>
                             <NavLink to="/explore">Art</NavLink>
                             <NavLink to="/explore">Collectibles</NavLink>

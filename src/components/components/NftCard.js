@@ -1,84 +1,49 @@
 import React, { memo } from 'react';
 import styled from "styled-components";
-import Clock from "./Clock";
-import { navigate } from '@reach/router';
-import api from '../../core/api';
 
 const Outer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  overflow: hidden;
+  width: 200px;
+  height: 300px;
+  border: 1px solid #bbb;
   border-radius: 8px;
+  margin: 12px 8px;
+  &:hover {
+    cursor: pointer;
+    background: linear-gradient(rgba(229, 232, 235, 0.392) 0%, rgb(255, 255, 255) 20%);
+  }
 `;
 
-//react functional component
-const NftCard = ({ nft, className = 'd-item col-lg-3 col-md-6 col-sm-6 col-xs-12 mb-4', clockTop = true, height, onImgLoad }) => {
+const NftCard = ({ nft }) => {
 
-    const navigateTo = (link) => {
-        navigate(link);
-    }
+  return (
+    <Outer>
+      <div style={{ width: 200, height: 200, overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <img src={nft.preview_image_url} alt={'nft'} style={{ width: 'auto', height: 200, borderTopRightRadius: 8, borderTopLeftRadius: 8 }} />
+      </div>
+      <div style={{ padding: 12 }}>
+        <div className='d-row justify-betwen f-14'>
+          <div style={{ whiteSpace: 'nowrap',  overflow: 'hidden', maxWidth: 130}}>{nft.title}</div>
+          <div>Price</div>
+        </div>
+        <div className='d-row justify-betwen f-14' style={{ marginTop: -2, fontWeight: '600' }}>
+          <div>I'am Frank</div>
+          <div> <img src={'https://storage.opensea.io/files/6f8e2979d428180222796ff4a33ab929.svg'} alt='eth' style={{ width: 7, marginRight: 3, marginTop: -2 }} />{nft.price}</div>
+        </div>
+        <div className='d-row justify-betwen f-14' style={{ marginTop: -2, }}>
+          <div></div>
+          <div>a day left</div>
+        </div>
+        <div className='d-row justify-betwen f-14' style={{ marginTop: 5, }}>
+          <div></div>
+          <div className="icon_heart_alt">
+            <span></span>
+          </div>
+        </div>
 
-    return (
-        <div className={className}>
-            <div className="nft__item m-0">
-            { nft.item_type === 'single_items' ? (
-             <div className='icontype'><i className="fa fa-bookmark"></i></div>   
-             ) : (  
-             <div className='icontype'><i className="fa fa-shopping-basket"></i></div>
-                )
-            }
-                { nft.deadline && clockTop &&
-                    <div className="de_countdown">
-                        <Clock deadline={nft.deadline} />
-                    </div>
-                }
-                <div className="author_list_pp">
-                    <span onClick={()=> navigateTo(nft.author_link)}>                                    
-                        <img className="lazy" src={api.baseUrl + nft.author.avatar.url} alt=""/>
-                        <i className="fa fa-check"></i>
-                    </span>
-                </div>
-                <div className="nft__item_wrap" style={{height: `${height}px`}}>
-                <Outer>
-                    <span>
-                        <img onLoad={onImgLoad} src={api.baseUrl + nft.preview_image.url} className="lazy nft__item_preview" alt=""/>
-                    </span>
-                </Outer>
-                </div>
-                { nft.deadline && !clockTop &&
-                    <div className="de_countdown">
-                        <Clock deadline={nft.deadline} />
-                    </div>
-                }
-                <div className="nft__item_info">
-                    <span onClick={() => navigateTo(`${nft.nft_link}/${nft.id}`)}>
-                        <h4>{nft.title}</h4>
-                    </span>
-                    { nft.status === 'has_offers' ? (
-                            <div className="has_offers">
-                                <span className='through'>{nft.priceover}</span> {nft.price} ETH
-                            </div> 
-                        ) : (
-                            <div className="nft__item_price">
-                                {nft.price} ETH
-                                { nft.status === 'on_auction' && 
-                                    <span>{nft.bid}/{nft.max_bid}</span>
-                                }
-                            </div>
-                        )
-                    }
-                    <div className="nft__item_action">
-                        <span onClick={() => navigateTo(`${nft.bid_link}/${nft.id}`)}>{ nft.status === 'on_auction' ? 'Place a bid' : 'Buy Now' }</span>
-                    </div>
-                    <div className="nft__item_like">
-                        <i className="fa fa-heart"></i><span>{nft.likes}</span>
-                    </div>                            
-                </div> 
-            </div>
-        </div>             
-    );
+      </div>
+
+    </Outer>
+  );
 };
 
 export default memo(NftCard);
