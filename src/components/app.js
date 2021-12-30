@@ -93,8 +93,9 @@ const App = () => {
           <RankingRedux path="/rangking" />
           <Minter path="/minter" />
           <Auth path="/auth" />
-          <AllNFTs path="/allnfts" />
-          <NftDetail path="/allnfts/:id" />
+          
+          <AllNFTs path="/metasaltTokens" />
+          <NftDetail path="/metasaltTokens/:id" />
 
           <Price path="/price" />
           <News path="/news" />

@@ -91,7 +91,7 @@ const AllNFTs = () => {
               }
               const { name, image, price } = JSON.parse(item.metadata)
               return (
-                <div key={index} onClick={() => navigate(`/allnfts/${item.token_id}`)}>
+                <div key={index} onClick={() => navigate(`/metasaltTokens/${item.token_id}`)}>
                   <NftCard
                     nft={{
                       preview_image_url: image,
