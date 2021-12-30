@@ -1,7 +1,9 @@
-import React, { useState } from "react";
-import Clock from "../components/Clock";
+import React, { useState, useEffect } from "react";
 import Footer from '../components/footer';
 import { createGlobalStyle } from 'styled-components';
+import { ALL_NFT_CONTRACT_ADDRESS } from "../components/constants/keys";
+import { useMoralisWeb3Api } from "react-moralis";
+import { SmallLoading } from "../components/loading";
 
 const GlobalStyles = createGlobalStyle`
   header#myHeader.navbar.white {
@@ -25,6 +27,28 @@ const NftDetail = function () {
 
   const [openMenu, setOpenMenu] = useState(true);
   const [openMenu1, setOpenMenu1] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [myNFT, setMyNFT] = useState();
+
+  const Web3Api = useMoralisWeb3Api();
+  const pathname = window.location.pathname.split('/')
+
+  useEffect(() => {
+    setTimeout(() => {
+      Web3Api && onFetch()
+    }, 1000)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const onFetch = async () => {
+    setIsLoading(true)
+    const c1 = { address: ALL_NFT_CONTRACT_ADDRESS, chain: "mumbai" };
+    const nftOwners = await Web3Api.token.getNFTOwners(c1);
+    // console.log('nftOwners', nftOwners)
+    setMyNFT(nftOwners?.result.find((item) => item.token_id === pathname[pathname.length - 1]))
+
+    setIsLoading(false)
+  }
 
   const handleBtnClick = () => {
     setOpenMenu(!openMenu);
@@ -40,6 +64,12 @@ const NftDetail = function () {
     document.getElementById("Mainbtn").classList.remove("active");
   };
 
+  const video = myNFT?.metadata && JSON.parse(myNFT?.metadata)?.video;
+  const image = myNFT?.metadata && JSON.parse(myNFT?.metadata)?.image;
+  const name = myNFT?.metadata && JSON.parse(myNFT?.metadata)?.name;
+  const description = myNFT?.metadata && JSON.parse(myNFT?.metadata)?.description;
+  const authorName = myNFT?.metadata && JSON.parse(myNFT?.metadata)?.authorName;
+
   return (
     <div>
       <GlobalStyles />
@@ -48,34 +78,25 @@ const NftDetail = function () {
         <div className='row mt-md-5 pt-md-4'>
 
           <div className="col-md-6 text-center">
-            <img src="./img/items/big-1.jpg" className="img-fluid img-rounded mb-sm-30" alt="" />
+            {!video && <img src={image} className="img-fluid img-rounded mb-sm-30" alt="" />}
+            {isLoading && <SmallLoading />}
           </div>
           <div className="col-md-6">
             <div className="item_info">
-              Auctions ends in
+              {/* Auctions ends in
               <div className="de_countdown">
                 <Clock deadline="December, 30, 2021" />
-              </div>
-              <h2>Pinky Ocean</h2>
+              </div> */}
+              <h2>{name || '-'}</h2>
+              <p>Owned by <span style={{ color: '#2082e1'}}>{authorName || 'unknown'}</span></p>
+
               <div className="item_info_counts">
                 <div className="item_info_type"><i className="fa fa-image"></i>Art</div>
                 <div className="item_info_views"><i className="fa fa-eye"></i>250</div>
                 <div className="item_info_like"><i className="fa fa-heart"></i>18</div>
               </div>
-              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+              <p>{description || '-'}</p>
 
-              <h6>Creator</h6>
-              <div className="item_author">
-                <div className="author_list_pp">
-                  <span>
-                    <img className="lazy" src="./img/author/author-1.jpg" alt="" />
-                    <i className="fa fa-check"></i>
-                  </span>
-                </div>
-                <div className="author_list_info">
-                  <span>Monica Lucas</span>
-                </div>
-              </div>
 
               <div className="spacer-40"></div>
 
@@ -90,12 +111,6 @@ const NftDetail = function () {
                   {openMenu && (
                     <div className="tab-1 onStep fadeIn">
                       <div className="p_list">
-                        <div className="p_list_pp">
-                          <span>
-                            <img className="lazy" src="./img/author/author-1.jpg" alt="" />
-                            <i className="fa fa-check"></i>
-                          </span>
-                        </div>
                         <div className="p_list_info">
                           Bid accepted <b>0.005 ETH</b>
                           <span>by <b>Monica Lucas</b> at 6/15/2021, 3:20 AM</span>
@@ -103,12 +118,7 @@ const NftDetail = function () {
                       </div>
 
                       <div className="p_list">
-                        <div className="p_list_pp">
-                          <span>
-                            <img className="lazy" src="./img/author/author-2.jpg" alt="" />
-                            <i className="fa fa-check"></i>
-                          </span>
-                        </div>
+                        
                         <div className="p_list_info">
                           Bid <b>0.005 ETH</b>
                           <span>by <b>Mamie Barnett</b> at 6/14/2021, 5:40 AM</span>
@@ -116,12 +126,7 @@ const NftDetail = function () {
                       </div>
 
                       <div className="p_list">
-                        <div className="p_list_pp">
-                          <span>
-                            <img className="lazy" src="./img/author/author-3.jpg" alt="" />
-                            <i className="fa fa-check"></i>
-                          </span>
-                        </div>
+                       
                         <div className="p_list_info">
                           Bid <b>0.004 ETH</b>
                           <span>by <b>Nicholas Daniels</b> at 6/13/2021, 5:03 AM</span>
@@ -129,12 +134,7 @@ const NftDetail = function () {
                       </div>
 
                       <div className="p_list">
-                        <div className="p_list_pp">
-                          <span>
-                            <img className="lazy" src="./img/author/author-4.jpg" alt="" />
-                            <i className="fa fa-check"></i>
-                          </span>
-                        </div>
+                        
                         <div className="p_list_info">
                           Bid <b>0.003 ETH</b>
                           <span>by <b>Lori Hart</b> at 6/12/2021, 12:57 AM</span>
@@ -146,12 +146,7 @@ const NftDetail = function () {
                   {openMenu1 && (
                     <div className="tab-2 onStep fadeIn">
                       <div className="p_list">
-                        <div className="p_list_pp">
-                          <span>
-                            <img className="lazy" src="./img/author/author-5.jpg" alt="" />
-                            <i className="fa fa-check"></i>
-                          </span>
-                        </div>
+                   
                         <div className="p_list_info">
                           Bid <b>0.005 ETH</b>
                           <span>by <b>Jimmy Wright</b> at 6/14/2021, 6:40 AM</span>
@@ -159,12 +154,7 @@ const NftDetail = function () {
                       </div>
 
                       <div className="p_list">
-                        <div className="p_list_pp">
-                          <span>
-                            <img className="lazy" src="./img/author/author-1.jpg" alt="" />
-                            <i className="fa fa-check"></i>
-                          </span>
-                        </div>
+                       
                         <div className="p_list_info">
                           Bid accepted <b>0.005 ETH</b>
                           <span>by <b>Monica Lucas</b> at 6/15/2021, 3:20 AM</span>
@@ -172,12 +162,7 @@ const NftDetail = function () {
                       </div>
 
                       <div className="p_list">
-                        <div className="p_list_pp">
-                          <span>
-                            <img className="lazy" src="./img/author/author-2.jpg" alt="" />
-                            <i className="fa fa-check"></i>
-                          </span>
-                        </div>
+                       
                         <div className="p_list_info">
                           Bid <b>0.005 ETH</b>
                           <span>by <b>Mamie Barnett</b> at 6/14/2021, 5:40 AM</span>
@@ -185,12 +170,7 @@ const NftDetail = function () {
                       </div>
 
                       <div className="p_list">
-                        <div className="p_list_pp">
-                          <span>
-                            <img className="lazy" src="./img/author/author-3.jpg" alt="" />
-                            <i className="fa fa-check"></i>
-                          </span>
-                        </div>
+                       
                         <div className="p_list_info">
                           Bid <b>0.004 ETH</b>
                           <span>by <b>Nicholas Daniels</b> at 6/13/2021, 5:03 AM</span>
@@ -198,12 +178,7 @@ const NftDetail = function () {
                       </div>
 
                       <div className="p_list">
-                        <div className="p_list_pp">
-                          <span>
-                            <img className="lazy" src="./img/author/author-4.jpg" alt="" />
-                            <i className="fa fa-check"></i>
-                          </span>
-                        </div>
+                      
                         <div className="p_list_info">
                           Bid <b>0.003 ETH</b>
                           <span>by <b>Lori Hart</b> at 6/12/2021, 12:57 AM</span>

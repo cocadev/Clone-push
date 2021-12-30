@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Clock from "../components/Clock";
 import Footer from '../components/footer';
 import { createGlobalStyle } from 'styled-components';
 
@@ -79,7 +78,7 @@ export default class Createpage extends Component {
               <div className='row m-10-hor'>
                 <div className='col-12'>
                   <h1 className='text-center'>Create-to-Earn</h1>
-                  <h2 className='text-center'>Get 100 MSTs for each NFT minted</h2>
+                  <p className='text-center'>Get 100 METASALT tokens for each NFT you mint</p>
                 </div>
               </div>
             </div>
@@ -114,25 +113,23 @@ export default class Createpage extends Component {
                   <div className="spacer-10"></div>
 
                   <h5>Description</h5>
-                  <textarea data-autoresize name="item_desc" id="item_desc" className="form-control" placeholder="e.g. 'Red Type F149 grand tourer purchased in 2021, Santa Monica. VIN TRTRO7XJA9H01257600'"></textarea>
-
-                  <div className="spacer-10"></div>
+                  <textarea data-autoresize name="item_desc" id="item_desc" className="form-control" placeholder="e.g. 'Red, Type F149, bought in 2021, Santa Monica. VIN TRTRO7XJA9H01257600'"></textarea>
 
                   <input type="button" id="submit" className="btn-main" value="Confirmed Purchase" />
                   
-                  <div className="spacer-10"></div>
+                  <div className="spacer-50"></div>
 
                   <h5>Price</h5>
-                  <input type="text" name="item_price" id="item_price" className="form-control" placeholder="Enter price for one item (MST)" />
+                  <input type="number" name="item_price" id="item_price" className="form-control" placeholder="Enter price for one item (MST)" />
 
                   <div className="spacer-10"></div>
 
                   <h5>Royalties</h5>
-                  <input type="text" name="item_royalties" id="item_royalties" className="form-control" placeholder="Suggested 3.0%" />
+                  <input type="number" name="item_royalties" id="item_royalties" className="form-control" placeholder="Suggested 3.0%" />
 
                   <div className="spacer-10"></div>
 
-                  <input type="button" id="submit" className="btn-main" value="Create Item" />
+                  <input type="button" id="submit" className="btn-main" value="MINT NFT" />
                 </div>
               </form>
             </div>
@@ -140,9 +137,7 @@ export default class Createpage extends Component {
             <div className="col-lg-3 col-sm-6 col-xs-12">
               <h5>Preview item</h5>
               <div className="nft__item m-0">
-                <div className="de_countdown">
-                  <Clock deadline="December, 30, 2021" />
-                </div>
+
                 <div className="author_list_pp">
                   <span>
                     <img className="lazy" src="./img/author/author-1.jpg" alt="" />
@@ -170,9 +165,7 @@ export default class Createpage extends Component {
                 </div>
               </div>
               <br />
-              <div className="nft__item m-0">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/QR_Code_Example.svg/1200px-QR_Code_Example.svg.png" alt='qrcode' />
-              </div>
+      
             </div>
           </div>
 

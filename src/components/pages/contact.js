@@ -102,7 +102,7 @@ const Contact = () => {
         <div className='row'>
           <div className="col-md-12 text-center">
               <h1>Contact Us</h1>
-              <p>Anim pariatur cliche reprehenderit</p>
+              <p>Leave us a message</p>
           </div>
         </div>
       </div>
@@ -132,22 +132,14 @@ const Contact = () => {
            <div className="padding40 box-rounded mb30">
               <h3>US Office</h3>
               <address className="s1">
-                <span><i className="id-color fa fa-map-marker fa-lg"></i>08 W 36th St, New York, NY 10001</span>
-                <span><i className="id-color fa fa-phone fa-lg"></i>+1 333 9296</span>
-                <span><i className="id-color fa fa-envelope-o fa-lg"></i><span className='btn'>contact@example.com</span></span>
-                <span><i className="id-color fa fa-file-pdf-o fa-lg"></i><span className='btn'>Download Brochure</span></span>
+                <span><i className="id-color fa fa-map-marker fa-lg"></i>160 Varick Street, New York, NY 10013</span>
+                <span><i className="id-color fa fa-phone fa-lg"></i>+1 917 832 4981</span>
+                <span><i className="id-color fa fa-envelope-o fa-lg"></i><span className='btn'>support@metasalt.io</span></span>
+                <span><i className="id-color fa fa-file-pdf-o fa-lg"></i><span className='btn'>Investor Relations</span></span>
               </address>
             </div>
 
-            <div className="padding40 box-rounded mb30 text-light">
-              <h3>AU Office</h3>
-              <address className="s1">
-                <span><i className="fa fa-map-marker fa-lg"></i>100 Mainstreet Center, Sydney</span>
-                <span><i className="fa fa-phone fa-lg"></i>+61 333 9296</span>
-                <span><i className="fa fa-envelope-o fa-lg"></i><span className='btn'>contact@example.com</span></span>
-                <span><i className="fa fa-file-pdf-o fa-lg"></i><span className='btn'>Download Brochure</span></span>
-              </address>
-            </div>
+            
 
           </div>
 

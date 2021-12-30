@@ -149,25 +149,44 @@ const Header = function () {
                 <div className='menu'>
 
                   <div className='navbar-item'>
+                    <div ref={ref}>
+                    <div className="dropdown-custom dropdown-toggle btn"
+                        onClick={handleBtnClick}
+                      >
+                        Create
+                      </div>
+                      {openMenu && (
+                        <div className='item-dropdown'>
+                          <div className="dropdown" onClick={closeMenu}>
+                            <NavLink to="/avatar" onClick={() => btn_icon(!showmenu)}>Avatar</NavLink>
+                            <NavLink to="/NFTs" onClick={() => btn_icon(!showmenu)}>NFTs</NavLink>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+
+                  <div className='navbar-item'>
                     <div ref={ref1}>
                       <div className="dropdown-custom dropdown-toggle btn"
                         onClick={handleBtnClick1}
                       >
-                        Explore
+                        Buy/Sell
                       </div>
                       {openMenu1 && (
                         <div className='item-dropdown'>
                           <div className="dropdown" onClick={closeMenu1}>
-                            <NavLink to="/allnfts" onClick={() => btn_icon(!showmenu)}>All NFTs</NavLink>
-                            <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>Art</NavLink>
-                            <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>Automobiles</NavLink>
-                            <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>Airplanes</NavLink>
-                            <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>Boats</NavLink>
-                            <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>Fashion</NavLink>
-                            <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>Jewelry</NavLink>
-                            <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>Real Estate</NavLink>
-                            <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>Watches</NavLink>
-                            <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>Wine</NavLink>
+                            <NavLink to="/metasaltTokens" onClick={() => btn_icon(!showmenu)}>METASALT Tokens</NavLink>
+                            <NavLink to="/art" onClick={() => btn_icon(!showmenu)}>Art</NavLink>
+                            <NavLink to="/boats" onClick={() => btn_icon(!showmenu)}>Boats</NavLink>
+                            <NavLink to="/cars" onClick={() => btn_icon(!showmenu)}>Cars</NavLink>
+                            <NavLink to="/fashion" onClick={() => btn_icon(!showmenu)}>Fashion</NavLink>
+                            <NavLink to="/jewelery" onClick={() => btn_icon(!showmenu)}>Jewelry</NavLink>
+                            <NavLink to="/planes" onClick={() => btn_icon(!showmenu)}>Planes</NavLink>
+                            <NavLink to="/realEstate" onClick={() => btn_icon(!showmenu)}>Real Estate</NavLink>
+                            <NavLink to="/watches" onClick={() => btn_icon(!showmenu)}>Watches</NavLink>
+                            <NavLink to="/wine" onClick={() => btn_icon(!showmenu)}>Wine</NavLink>
                           </div>
                         </div>
                       )}
@@ -179,13 +198,14 @@ const Header = function () {
                       <div className="dropdown-custom dropdown-toggle btn"
                         onClick={handleBtnClick2}
                       >
-                        Stats
+                        Community
                       </div>
                       {openMenu2 && (
                         <div className='item-dropdown'>
                           <div className="dropdown" onClick={closeMenu2}>
-                            <NavLink to="/rangking" onClick={() => btn_icon(!showmenu)}>Ranking</NavLink>
+                            <NavLink to="/ranking" onClick={() => btn_icon(!showmenu)}>Ranking</NavLink>
                             <NavLink to="/activity" onClick={() => btn_icon(!showmenu)}>Activity</NavLink>
+                            <NavLink to="/forum" onClick={() => btn_icon(!showmenu)}>Forum</NavLink>
                           </div>
                         </div>
                       )}
@@ -202,28 +222,17 @@ const Header = function () {
                       {openMenu3 && (
                         <div className='item-dropdown'>
                           <div className="dropdown" onClick={closeMenu3}>
+                            <NavLink to="/resources" onClick={() => btn_icon(!showmenu)}>Resources</NavLink>
                             <NavLink to="/helpcenter" onClick={() => btn_icon(!showmenu)}>Help Center</NavLink>
-                            <NavLink to="/wallet" onClick={() => btn_icon(!showmenu)}>Wallet</NavLink>
-                            <NavLink to="/news" onClick={() => btn_icon(!showmenu)}>News</NavLink>
-                            <NavLink to="/works" onClick={() => btn_icon(!showmenu)}>Gallery</NavLink>
-                            <NavLink to="/contact" onClick={() => btn_icon(!showmenu)}>Contact Us</NavLink>
+                            <NavLink to="/submitaTicket" onClick={() => btn_icon(!showmenu)}>Submit a Ticket</NavLink>
+                            <NavLink to="/newsletter" onClick={() => btn_icon(!showmenu)}>Newsletter</NavLink>
+                            <NavLink to="/contactus" onClick={() => btn_icon(!showmenu)}>Contact Us</NavLink>
                           </div>
                         </div>
                       )}
                     </div>
                   </div>
 
-                  <div className='navbar-item'>
-                    <div ref={ref}>
-                      <NavLink to="/create"><div className="dropdown-custom btn"
-                        onClick={handleBtnClick}
-                      >
-                        Create
-                      </div>
-                      </NavLink>
-
-                    </div>
-                  </div>
 
                   <div className='navbar-item'>
                     <div ref={ref4}>
@@ -250,30 +259,50 @@ const Header = function () {
             {/* Full Desktop */}
             <Breakpoint xl>
               <div className='menu'>
+
+
+              <div className='navbar-item'>
+                  <div ref={ref}>
+                   
+                      <div className="dropdown-custom dropdown-toggle btn"
+                        onMouseEnter={handleBtnClick} onMouseLeave={closeMenu}>
+                        Create
+                        <span className='lines'></span>
+                        {openMenu && (
+                        <div className='item-dropdown'>
+                          <div className="dropdown" onClick={closeMenu}>
+                            <NavLink to="/avatar">Avatar</NavLink>
+                            <NavLink to="/allnfts">NFTs</NavLink>
+                          </div>
+                      </div>
+                        )}
+                    </div>
+                  </div>
+                </div>
+
                 <div className='navbar-item'>
                   <div ref={ref1}>
                     <div className="dropdown-custom dropdown-toggle btn"
                       onMouseEnter={handleBtnClick1} onMouseLeave={closeMenu1}>
-                      Explore
+                      Buy/Sell
                       <span className='lines'></span>
                       {openMenu1 && (
                         <div className='item-dropdown'>
                           <div className="dropdown" onClick={closeMenu1}>
-                            <NavLink to="/allnfts">All NFTs</NavLink>
-                            <NavLink to="/explore">Art</NavLink>
-                            <NavLink to="/explore">Automobiles</NavLink>
-                            <NavLink to="/explore">Airplanes</NavLink>
-                            <NavLink to="/explore">Boats</NavLink>
-                            <NavLink to="/explore">Fashion</NavLink>
-                            <NavLink to="/explore">Jewelry</NavLink>
-                            <NavLink to="/explore">Real Estate</NavLink>
-                            <NavLink to="/explore">Watches</NavLink>
-                            <NavLink to="/explore">Wine</NavLink>
+                            <NavLink to="/metasaltTokens">METASALT Tokens</NavLink>
+                            <NavLink to="/art">Art</NavLink>
+                            <NavLink to="/boats">Boats</NavLink>
+                            <NavLink to="/cars">Cars</NavLink>
+                            <NavLink to="/fashion">Fashion</NavLink>
+                            <NavLink to="/jewelry">Jewelry</NavLink>
+                            <NavLink to="/planes">Planes</NavLink>
+                            <NavLink to="/realEstate">Real Estate</NavLink>
+                            <NavLink to="/watches">Watches</NavLink>
+                            <NavLink to="/wine">Wine</NavLink>
                           </div>
                         </div>
                       )}
                     </div>
-
                   </div>
                 </div>
 
@@ -281,13 +310,14 @@ const Header = function () {
                   <div ref={ref2}>
                     <div className="dropdown-custom dropdown-toggle btn"
                       onMouseEnter={handleBtnClick2} onMouseLeave={closeMenu2}>
-                      Stats
+                      Community
                       <span className='lines'></span>
                       {openMenu2 && (
                         <div className='item-dropdown'>
                           <div className="dropdown" onClick={closeMenu2}>
-                            <NavLink to="/rangking">Ranking</NavLink>
+                            <NavLink to="/ranking">Ranking</NavLink>
                             <NavLink to="/activity">Activity</NavLink>
+                            <NavLink to="/forum">Forum</NavLink>
                           </div>
                         </div>
                       )}
@@ -304,11 +334,11 @@ const Header = function () {
                       {openMenu3 && (
                         <div className='item-dropdown'>
                           <div className="dropdown" onClick={closeMenu3}>
+                            <NavLink to="/resources">Resources</NavLink>
                             <NavLink to="/helpcenter">Help Center</NavLink>
-                            <NavLink to="/wallet">Wallet</NavLink>
-                            <NavLink to="/news">News</NavLink>
-                            <NavLink to="/works">Gallery</NavLink>
-                            <NavLink to="/contact">Contact Us</NavLink>
+                            <NavLink to="/submitaticket">Submit a Ticket</NavLink>
+                            <NavLink to="/newsletter">Newsletter</NavLink>
+                           <NavLink to="/contactus">Contact Us</NavLink>
                           </div>
                         </div>
                       )}
@@ -316,17 +346,7 @@ const Header = function () {
                   </div>
                 </div>
 
-                <div className='navbar-item'>
-                  <div ref={ref}>
-                    <NavLink to="/create">
-                      <div className="dropdown-custom btn"
-                        onMouseEnter={handleBtnClick} onMouseLeave={closeMenu}>
-                        Create
-                        <span className='lines'></span>
-                      </div>
-                    </NavLink>
-                  </div>
-                </div>
+
 
                 <div className='navbar-item' style={{marginTop: -10, marginLeft: 10}}>
                   <div ref={ref4}>

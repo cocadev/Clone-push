@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
 import Footer from '../components/footer';
 import { createGlobalStyle } from 'styled-components';
-import { useMoralis } from "react-moralis";
+import { useMoralisWeb3Api } from 'react-moralis';
+import { ALL_NFT_CONTRACT_ADDRESS } from '../components/constants/keys';
+import NftCard from '../components/NftCard';
+import { SmallLoading } from '../components/loading';
+import { navigate } from '@reach/router';
 
 const GlobalStyles = createGlobalStyle`
   header#myHeader.navbar.sticky.white {
@@ -16,7 +20,7 @@ const GlobalStyles = createGlobalStyle`
     color: #fff;
   }
   header#myHeader .dropdown-toggle::after{
-    color: rgba(255, 255, 255, .5);
+    color: rgba(255, 255, 255, .5);;
   }
   header#myHeader .logo .d-block{
     display: none !important;
@@ -26,15 +30,6 @@ const GlobalStyles = createGlobalStyle`
   }
   .demo-icon-wrap-s2 span {
     color: #fff;
-  }
-  .mainside{
-    .connect-wal{
-      display: none;
-    }
-    .logout{
-      display: flex;
-      align-items: center;
-    }
   }
   @media only screen and (max-width: 1199px) {
     .navbar{
@@ -49,10 +44,27 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
-export const ProfilePage = () => {
+const ProfilePage = () => {
 
-  const { user, account } = useMoralis();
-  const [email, setEmail] = useState();
+  const [isLoading, setIsLoading] = useState(false);
+  const [allData, setAllData] = useState([]);
+  const Web3Api = useMoralisWeb3Api();
+
+  useEffect(() => {
+    setTimeout(() => {
+      Web3Api && onFetch()
+    }, 1000)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const onFetch = async () => {
+    setIsLoading(true)
+    const c1 = { address: ALL_NFT_CONTRACT_ADDRESS, chain: "mumbai", };
+    const nftOwners = await Web3Api.token.getNFTOwners(c1);
+    console.log('nftOwners', nftOwners)
+    setAllData(nftOwners?.result.filter(item => item.owner_of === '0xBc6f27549a7f3ad4d88C9EFE83e6732b024DFe19'.toLowerCase()))
+    setIsLoading(false)
+  }
 
   return (
     <div>
@@ -63,63 +75,44 @@ export const ProfilePage = () => {
           <div className='container'>
             <div className='row m-10-hor'>
               <div className='col-12'>
-                <h1 className='text-center'>Edit Profile</h1>
+                <h1 className='text-center'>Profile</h1>
               </div>
             </div>
           </div>
         </div>
       </section>
-
+      {isLoading && <SmallLoading />}
       <section className='container'>
-
-        <div className="row">
-          <div className="col-lg-7 offset-lg-1 mb-5">
-            <form id="form-create-item" className="form-border" action="#">
-              <div className="field-set">
-
-                <h5>Email</h5>
-                <input type="text" name="emal" className="form-control" placeholder="Email" 
-                  value={email || (user && user.get('email'))} 
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-
-                <div className="spacer-10"></div>
-
-                <h5>Username</h5>
-                <input type="text" name="item_price" id="item_price" className="form-control" placeholder="Username" disabled value={user && user.get('username')} />
-
-                <div className="spacer-10"></div>
-
-                <h5>Address</h5>
-                <input type="text" name="item_royalties" id="item_royalties" className="form-control" placeholder="Address" disabled value={account} />
-
-                <div className="spacer-10"></div>
-
-                {/* <input type="button" id="submit" className="btn-main" value="Create Item"/> */}
-
-                {!account && <div className="alert alert-danger" role="alert">
-                  Sign up Metamask to transact and mint NFTs!
-                </div>}
-              </div>
-            </form>
-          </div>
-
-          <div className="col-lg-3 col-sm-6 col-xs-12">
-            <h5>Profile Image</h5>
-            <div className="nft__item m-0">
-              <div className="nft__item_wrap">
-                <span>
-                  <img src="./img/author/author-11.jpg" id="get_file_2" className="lazy nft__item_preview" alt="" />
-                  <div className="btn-center mt-3">Upload</div>
-                </span>
-              </div>
-            </div>
-          </div>
+        <div className='flex flex-wrap center mt-30' style={{ alignItems: 'center', justifyContent: 'center' }}>
+          {
+            allData.map((item, index) => {
+              if (!item.metadata) {
+                return null
+              }
+              const { name, image, price } = JSON.parse(item.metadata)
+              return (
+                <div key={index} onClick={() => navigate(`/allnfts/${item.token_id}`)}>
+                  <NftCard
+                    nft={{
+                      preview_image_url: image,
+                      title: name,
+                      price: price,
+                      priceover: '',
+                      status: '',
+                      likes: '',
+                      nft_link: '',
+                      id: ''
+                    }}
+                    mine={true}
+                  />
+                </div>)
+            })
+          }
         </div>
-
       </section>
-
       <Footer />
     </div>
-  );
-}
+  )
+};
+
+export default ProfilePage;

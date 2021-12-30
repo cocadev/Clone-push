@@ -1,9 +1,9 @@
 import React, { memo } from 'react';
 
-const NftCard = ({ nft }) => {
+const NftCard = ({ nft, mine }) => {
 
   return (
-    <div className='nft-card'>
+    <div className='nft-card' style={{ height: mine ? 280 : 300}}>
       <div className='nft-card-header'>
         <img src={nft.preview_image_url} alt={'nft'} />
       </div>
@@ -16,12 +16,12 @@ const NftCard = ({ nft }) => {
           <div>I'am Frank</div>
           <div> <img src={'https://storage.opensea.io/files/6f8e2979d428180222796ff4a33ab929.svg'} alt='eth' style={{ width: 7, marginRight: 3, marginTop: -2 }} />{nft.price}</div>
         </div>
-        <div className='d-row justify-betwen f-14' style={{ marginTop: -2, }}>
+        {!mine && <div className='d-row justify-betwen f-14' style={{ marginTop: -2, }}>
           <div></div>
           <div>a day left</div>
-        </div>
+        </div>}
         <div className='d-row justify-betwen f-14' style={{ marginTop: 5, }}>
-          <div className='buy-now'></div>
+          {!mine && <div className='buy-now'></div>}
           <div className="icon_heart_alt">
             <span></span>
           </div>

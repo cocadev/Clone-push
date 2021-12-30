@@ -107,7 +107,7 @@ $color_more: #403f83;
 
 // =======================================================
 .nft-card {
-  width: 200px;
+  width: 202px;
   height: 300px;
   border: 1px solid #bbb;
   border-radius: 8px;
@@ -140,3 +140,13 @@ $color_more: #403f83;
   border-top-right-radius: 8px;
 }
 
+.resource-btn {
+  border-radius: 5px;
+  padding: 8px 12px;
+  max-width: 240px;
+  cursor: pointer;
+}
+
+.border-active {
+  border: 1px solid #2081e2;
+}

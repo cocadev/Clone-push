@@ -7,14 +7,18 @@ const footer= () => (
                 <div className="row">
                     <div className="col-md-3 col-sm-6 col-xs-1">
                         <div className="widget">
-                            <h5>Marketplace</h5>
+                            <h5>Buy/Sell</h5>
                             <ul>
-                                <li><Link to="">All NFTs</Link></li>
+                                <li><Link to="">METASALT Tokens</Link></li>
                                 <li><Link to="">Art</Link></li>
-                                <li><Link to="">Music</Link></li>
-                                <li><Link to="">Domain Names</Link></li>
-                                <li><Link to="">Virtual World</Link></li>
-                                <li><Link to="">Collectibles</Link></li>
+                                <li><Link to="">Boats</Link></li>
+                                <li><Link to="">Cars</Link></li>
+                                <li><Link to="">Fashion</Link></li>
+                                <li><Link to="">Jewelry</Link></li>
+                                <li><Link to="">Planes</Link></li>
+                                <li><Link to="">Real Estate</Link></li>
+                                <li><Link to="">Watches</Link></li>
+                                <li><Link to="">Wine</Link></li>
                             </ul>
                         </div>
                     </div>
@@ -23,11 +27,9 @@ const footer= () => (
                             <h5>Resources</h5>
                             <ul>
                                 <li><Link to="">Help Center</Link></li>
-                                <li><Link to="">Partners</Link></li>
-                                <li><Link to="">Suggestions</Link></li>
-                                <li><Link to="">Discord</Link></li>
-                                <li><Link to="">Docs</Link></li>
+                                <li><Link to="">Submit Ticket</Link></li>
                                 <li><Link to="">Newsletter</Link></li>
+                                <li><Link to="">Contact Us</Link></li>
                             </ul>
                         </div>
                     </div>
@@ -35,12 +37,9 @@ const footer= () => (
                         <div className="widget">
                             <h5>Community</h5>
                             <ul>
-                                <li><Link to="">Community</Link></li>
-                                <li><Link to="">Documentation</Link></li>
-                                <li><Link to="">Brand Assets</Link></li>
-                                <li><Link to="">Blog</Link></li>
+                                <li><Link to="">Ranking</Link></li>
+                                <li><Link to="">Activity</Link></li>
                                 <li><Link to="">Forum</Link></li>
-                                <li><Link to="">Mailing List</Link></li>
                             </ul>
                         </div>
                     </div>
@@ -58,7 +57,7 @@ const footer= () => (
                                 </div>
                             </form>
                             <div className="spacer-10"></div>
-                            <small>Your email is safe with us. We don't spam.</small>
+                            <small>We never spam.</small>
                         </div>
                     </div>
                 </div>

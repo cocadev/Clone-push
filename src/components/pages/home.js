@@ -22,7 +22,7 @@ const home= () => (
         <div className='row'>
           <div className='col-lg-12'>
             <div className='text-center'>
-              <h2>Hot Collections</h2>
+              <h2>Luxury Collections</h2>
               <div className="small-border"></div>
             </div>
           </div>
@@ -36,7 +36,7 @@ const home= () => (
         <div className='row'>
           <div className='col-lg-12'>
             <div className='text-center'>
-              <h2>New Items</h2>
+              <h2>Recently Added</h2>
               <div className="small-border"></div>
             </div>
           </div>
@@ -50,7 +50,7 @@ const home= () => (
         <div className='row'>
           <div className='col-lg-12'>
             <div className='text-center'>
-              <h2>Top Sellers</h2>
+              <h2>Leader Board</h2>
               <div className="small-border"></div>
             </div>
           </div>

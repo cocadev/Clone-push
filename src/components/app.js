@@ -31,8 +31,9 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { createGlobalStyle } from 'styled-components';
 import Minter from './pages/Minter';
-import {ProfilePage} from './pages/profile';
+import ProfilePage from './pages/profile';
 import NftDetail from './pages/ItemDetail';
+import Resources from './pages/resources';
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -81,6 +82,7 @@ const App = () => {
           <Auction path="/Auction" />
           <ItemDetailRedux path="/ItemDetail/:nftId" />
           <Helpcenter path="/helpcenter" />
+          <Resources path="/resources" />
           <Author path="/Author/:authorId" />
           <Works path="/works" />
           <Wallet path="/wallet" />

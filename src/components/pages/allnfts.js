@@ -5,6 +5,7 @@ import { useMoralisWeb3Api } from 'react-moralis';
 import { ALL_NFT_CONTRACT_ADDRESS } from '../components/constants/keys';
 import NftCard from '../components/NftCard';
 import { SmallLoading } from '../components/loading';
+import { navigate } from '@reach/router';
 
 const GlobalStyles = createGlobalStyle`
   header#myHeader.navbar.sticky.white {
@@ -85,12 +86,12 @@ const AllNFTs = () => {
         <div className='flex flex-wrap center mt-30' style={{ alignItems: 'center', justifyContent: 'center' }}>
           {
             allData.map((item, index) => {
-              if(!item.metadata){
+              if (!item.metadata) {
                 return null
               }
               const { name, image, price } = JSON.parse(item.metadata)
               return (
-                <div key={index} >
+                <div key={index} onClick={() => navigate(`/allnfts/${item.token_id}`)}>
                   <NftCard
                     nft={{
                       preview_image_url: image,
