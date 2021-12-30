@@ -159,11 +159,15 @@ const Header = function () {
                         <div className='item-dropdown'>
                           <div className="dropdown" onClick={closeMenu1}>
                             <NavLink to="/allnfts" onClick={() => btn_icon(!showmenu)}>All NFTs</NavLink>
-                            <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>New</NavLink>
                             <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>Art</NavLink>
-                            <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>Collectibles</NavLink>
-                            <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>Music</NavLink>
-                            <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>Sports</NavLink>
+                            <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>Automobiles</NavLink>
+                            <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>Airplanes</NavLink>
+                            <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>Boats</NavLink>
+                            <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>Fashion</NavLink>
+                            <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>Jewelry</NavLink>
+                            <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>Real Estate</NavLink>
+                            <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>Watches</NavLink>
+                            <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>Wine</NavLink>
                           </div>
                         </div>
                       )}
@@ -180,7 +184,7 @@ const Header = function () {
                       {openMenu2 && (
                         <div className='item-dropdown'>
                           <div className="dropdown" onClick={closeMenu2}>
-                            <NavLink to="/rangking" onClick={() => btn_icon(!showmenu)}>Rangking</NavLink>
+                            <NavLink to="/rangking" onClick={() => btn_icon(!showmenu)}>Ranking</NavLink>
                             <NavLink to="/activity" onClick={() => btn_icon(!showmenu)}>Activity</NavLink>
                           </div>
                         </div>
@@ -256,11 +260,15 @@ const Header = function () {
                         <div className='item-dropdown'>
                           <div className="dropdown" onClick={closeMenu1}>
                             <NavLink to="/allnfts">All NFTs</NavLink>
-                            <NavLink to="/explore">New</NavLink>
                             <NavLink to="/explore">Art</NavLink>
-                            <NavLink to="/explore">Collectibles</NavLink>
-                            <NavLink to="/explore">Music</NavLink>
-                            <NavLink to="/explore">Sports</NavLink>
+                            <NavLink to="/explore">Automobiles</NavLink>
+                            <NavLink to="/explore">Airplanes</NavLink>
+                            <NavLink to="/explore">Boats</NavLink>
+                            <NavLink to="/explore">Fashion</NavLink>
+                            <NavLink to="/explore">Jewelry</NavLink>
+                            <NavLink to="/explore">Real Estate</NavLink>
+                            <NavLink to="/explore">Watches</NavLink>
+                            <NavLink to="/explore">Wine</NavLink>
                           </div>
                         </div>
                       )}
@@ -278,7 +286,7 @@ const Header = function () {
                       {openMenu2 && (
                         <div className='item-dropdown'>
                           <div className="dropdown" onClick={closeMenu2}>
-                            <NavLink to="/rangking">Rangking</NavLink>
+                            <NavLink to="/rangking">Ranking</NavLink>
                             <NavLink to="/activity">Activity</NavLink>
                           </div>
                         </div>

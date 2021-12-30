@@ -70,7 +70,7 @@ const logintwo= () => (
           <div className="feature-box f-boxed style-3 text-center">
               <div className="text">
                   <h4>Getting Started</h4>
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam.</p>
+                  <p>yySed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam.</p>
                   <Link to="" className="btn-main m-auto">Read more</Link>
               </div>
           </div>

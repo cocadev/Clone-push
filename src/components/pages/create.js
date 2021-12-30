@@ -73,12 +73,13 @@ export default class Createpage extends Component {
       <div>
         <GlobalStyles />
 
-        <section className='jumbotron breadcumb no-bg' style={{ backgroundImage: `url(${'./img/background/subheader.jpg'})` }}>
+        <section className='jumbotron breadcumb no-bg' style={{ backgroundImage: `url(${'./img/background/7.jpg'})` }}>
           <div className='mainbreadcumb'>
             <div className='container'>
               <div className='row m-10-hor'>
                 <div className='col-12'>
-                  <h1 className='text-center'>Create</h1>
+                  <h1 className='text-center'>Create-to-Earn</h1>
+                  <h2 className='text-center'>Get 100 MSTs for each NFT minted</h2>
                 </div>
               </div>
             </div>
@@ -108,22 +109,26 @@ export default class Createpage extends Component {
                   <div className="spacer-single"></div>
 
                   <h5>Title</h5>
-                  <input type="text" name="item_title" id="item_title" className="form-control" placeholder="e.g. 'Crypto Funk" />
+                  <input type="text" name="item_title" id="item_title" className="form-control" placeholder="e.g. 'Ferrari California'" />
 
                   <div className="spacer-10"></div>
 
                   <h5>Description</h5>
-                  <textarea data-autoresize name="item_desc" id="item_desc" className="form-control" placeholder="e.g. 'This is very limited item'"></textarea>
+                  <textarea data-autoresize name="item_desc" id="item_desc" className="form-control" placeholder="e.g. 'Red Type F149 grand tourer purchased in 2021, Santa Monica. VIN TRTRO7XJA9H01257600'"></textarea>
 
                   <div className="spacer-10"></div>
 
+                  <input type="button" id="submit" className="btn-main" value="Confirmed Purchase" />
+                  
+                  <div className="spacer-10"></div>
+
                   <h5>Price</h5>
-                  <input type="text" name="item_price" id="item_price" className="form-control" placeholder="enter price for one item (ETH)" />
+                  <input type="text" name="item_price" id="item_price" className="form-control" placeholder="Enter price for one item (MST)" />
 
                   <div className="spacer-10"></div>
 
                   <h5>Royalties</h5>
-                  <input type="text" name="item_royalties" id="item_royalties" className="form-control" placeholder="suggested: 0, 10%, 20%, 30%. Maximum is 70%" />
+                  <input type="text" name="item_royalties" id="item_royalties" className="form-control" placeholder="Suggested 3.0%" />
 
                   <div className="spacer-10"></div>
 
@@ -146,15 +151,15 @@ export default class Createpage extends Component {
                 </div>
                 <div className="nft__item_wrap">
                   <span>
-                    <img src="./img/collections/coll-item-3.jpg" id="get_file_2" className="lazy nft__item_preview" alt="" />
+                    <img src="./img/collections/rolex.jpg" id="get_file_2" className="lazy nft__item_preview" alt="" />
                   </span>
                 </div>
                 <div className="nft__item_info">
                   <span >
-                    <h4>Pinky Ocean</h4>
+                    <h4>Rolex Datejust</h4>
                   </span>
                   <div className="nft__item_price">
-                    0.08 ETH<span>1/20</span>
+                    26,500 MST<span>1/20</span>
                   </div>
                   <div className="nft__item_action">
                     <span>Place a bid</span>

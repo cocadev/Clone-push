@@ -4,6 +4,7 @@ import { createGlobalStyle } from 'styled-components';
 import { useMoralisWeb3Api } from 'react-moralis';
 import { ALL_NFT_CONTRACT_ADDRESS } from '../components/constants/keys';
 import NftCard from '../components/NftCard';
+import { SmallLoading } from '../components/loading';
 
 const GlobalStyles = createGlobalStyle`
   header#myHeader.navbar.sticky.white {
@@ -25,6 +26,9 @@ const GlobalStyles = createGlobalStyle`
   }
   header#myHeader .logo .d-none{
     display: block !important;
+  }
+  .demo-icon-wrap-s2 span {
+    color: #fff;
   }
   @media only screen and (max-width: 1199px) {
     .navbar{
@@ -76,7 +80,7 @@ const AllNFTs = () => {
           </div>
         </div>
       </section>
-      {isLoading && <div className='d-center mt-10'>Loading...</div>}
+      {isLoading && <SmallLoading />}
       <section className='container'>
         <div className='flex flex-wrap center mt-30' style={{ alignItems: 'center', justifyContent: 'center' }}>
           {
@@ -86,7 +90,7 @@ const AllNFTs = () => {
               }
               const { name, image, price } = JSON.parse(item.metadata)
               return (
-                <div key={index}>
+                <div key={index} >
                   <NftCard
                     nft={{
                       preview_image_url: image,

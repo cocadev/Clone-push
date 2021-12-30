@@ -24,10 +24,10 @@ const featurebox= () => (
                   </Reveal>
                     <div className="text">
                       <Reveal className='onStep' keyframes={fadeInUp} delay={100} duration={600} triggerOnce>
-                        <h4 className="">Set up your wallet</h4>
+                        <h4 className="">CONNECT</h4>
                       </Reveal>
                       <Reveal className='onStep' keyframes={fadeInUp} delay={200} duration={600} triggerOnce>
-                        <p className="">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem.</p>
+                        <p className="">Connect your digital wallet to METASALT, generate your avatar, and bling out your profile. Then, start promoting, buying and selling your NFTs.</p>
                       </Reveal>
                     </div>
                     <i className="wm icon_wallet"></i>
@@ -41,10 +41,10 @@ const featurebox= () => (
                 </Reveal>
                   <div className="text">
                     <Reveal className='onStep' keyframes={fadeInUp} delay={100} duration={600} triggerOnce>
-                      <h4 className="">Add your NFT's</h4>
+                      <h4 className="">CREATE-TO-EARN</h4>
                     </Reveal>
                     <Reveal className='onStep' keyframes={fadeInUp} delay={200} duration={600} triggerOnce>
-                      <p className="">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem.</p>
+                      <p className="">Create NFTs of any real world object and get free METASALT tokens every time you do! Brand owners, take control in the Metaverse, by clicking here.</p>
                     </Reveal>
                   </div>
                   <i className="wm icon_cloud-upload_alt"></i>
@@ -58,15 +58,17 @@ const featurebox= () => (
                 </Reveal>
                   <div className="text">
                     <Reveal className='onStep' keyframes={fadeInUp} delay={100} duration={600} triggerOnce>
-                      <h4 className="">Sell your NFT's</h4>
+                      <h4 className="">MAKE MONEY</h4>
                     </Reveal>
                     <Reveal className='onStep' keyframes={fadeInUp} delay={200} duration={600} triggerOnce>
-                      <p className="">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem.</p>
+                      <p className="">Promote, buy, and sell NFTs using METASALT tokens. The more tokens you have, the more you control. Buy and sell tokens using US Dollars.</p>
                     </Reveal>
                   </div>
                   <i className="wm icon_tags_alt"></i>
               </div>
           </div>
+
+         
         </div>
 );
 export default featurebox;

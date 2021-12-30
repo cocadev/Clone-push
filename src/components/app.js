@@ -32,6 +32,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { createGlobalStyle } from 'styled-components';
 import Minter from './pages/Minter';
 import {ProfilePage} from './pages/profile';
+import NftDetail from './pages/ItemDetail';
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -91,6 +92,7 @@ const App = () => {
           <Minter path="/minter" />
           <Auth path="/auth" />
           <AllNFTs path="/allnfts" />
+          <NftDetail path="/allnfts/:id" />
 
           <Price path="/price" />
           <News path="/news" />

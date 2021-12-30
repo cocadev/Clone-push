@@ -30,15 +30,15 @@ const slidermain = () => (
       <div className="col-md-6">
         <div className="spacer-single"></div>
         <Reveal className='onStep' keyframes={fadeInUp} delay={0} duration={600} triggerOnce>
-          <h6 className=""><span className="text-uppercase color">Metasalt NFTs</span></h6>
+          <h6 className=""><span className="text-uppercase color">create buy sell</span></h6>
         </Reveal>
         <div className="spacer-10"></div>
         <Reveal className='onStep' keyframes={fadeInUp} delay={300} duration={600} triggerOnce>
-          <h1 className="">Create, buy, or sell NFTs of anything</h1>
+          <h1 className="">Real World NFTs in the Metaverse</h1>
         </Reveal>
         <Reveal className='onStep' keyframes={fadeInUp} delay={600} duration={600} triggerOnce>
           <p className=" lead">
-            Unit of data stored on a digital ledger, called a blockchain, that certifies a digital asset to be unique and therefore not interchangeable
+            Go beyond digital art. Upload a pic of your real world object, add a description, and prove ownership. Mint an NFT on the blockchain in seconds. Then, promote, buy, or sell using METASALT tokens. Connect social media, grow your fanbase, and make money. 
           </p>
         </Reveal>
         <div className="spacer-10"></div>

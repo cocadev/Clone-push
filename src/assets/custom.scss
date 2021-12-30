@@ -1,45 +1,5 @@
 /* CSS Document */
 
-
-/* 
-*
-*
-[Table of contents]
-*
-*
-*
-
-  color / $white
-  font / @import 
-  general / html
-  dropdown / .dropdown-custom.btn
-  navbar / .navbar
-  breadcumb / .breadcumb
-  home / .subheading
-  icon scroll / .icon-scroll-wraper
-  footer / footer
-  portofolio / AppContainer
-  contact / .form-side
-  news / .post-content
-  create file / .d-create-file
-  activity / .filter__l
-  feature box / .feature-box .inner
-  column nft / .nft_coll
-  countdown / .de_countdown
-  author list / .author_list
-  icon box / .icon-box 
-  carousel / .d-carousel
-  filter / .items_filter
-  colection / #profile_banner 
-  item details / .item_info
-  wallet / .box-url 
-  login / .field-set label
-  all icon / .demo-icon-wrap-s2 
-  element / .card-header
-  media all / @media only screen and (max-width: 1199px)
-
-*/
-
 /*color*/
 $white: #fff;
 $gray: #bbb;
@@ -141,3 +101,42 @@ $color_more: #403f83;
   justify-content: center;
   align-items: center;
 }
+.w-full {
+  width: 100%;
+}
+
+// =======================================================
+.nft-card {
+  width: 200px;
+  height: 300px;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  margin: 12px 8px;
+  &:hover {
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; 
+    .buy-now::after{
+      content: 'Buy Now';
+      font-size: 15px;
+      color: #2081e2;
+      font-weight: 600;
+    }
+  }
+}
+
+.nft-card-header {
+  width: 200px; 
+  height: 200px;
+  overflow: hidden; 
+  display: flex;
+  justify-content: center; 
+  align-items: center
+}
+
+.nft-card-header img{
+  width: auto;
+  height: 200px; 
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+

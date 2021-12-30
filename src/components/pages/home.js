@@ -60,6 +60,7 @@ const home= () => (
         </div>
       </section>
 
+
       <section className='container'>
         <div className='row'>
           <div className='col-lg-12'>

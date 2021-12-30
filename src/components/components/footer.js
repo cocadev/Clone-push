@@ -73,12 +73,12 @@ const footer= () => (
                                         <img alt="" className="f-logo d-1" src="./img/logo.png" style={{ width: 200}}/>
                                         <img alt="" className="f-logo d-3" src="./img/logo-2-light.png" />
                                         <img alt="" className="f-logo d-4" src="./img/logo-3.png" />
-                                        <span className="copy">&copy; Copyright 2021 - Gigaland by Designesia</span>
+                                        <span className="copy">&copy; 2021 - All Rights Reserved</span>
                                     </span>
                                 </div>
                                 <div className="de-flex-col">
                                     <div className="social-icons">
-                                        <span onClick={()=> window.open("", "_self")}><i className="fa fa-facebook fa-lg"></i></span>
+                                        <span onClick={()=> window.open("https://google.com", "_self")}><i className="fa fa-facebook fa-lg"></i></span>
                                         <span onClick={()=> window.open("", "_self")}><i className="fa fa-twitter fa-lg"></i></span>
                                         <span onClick={()=> window.open("", "_self")}><i className="fa fa-linkedin fa-lg"></i></span>
                                         <span onClick={()=> window.open("", "_self")}><i className="fa fa-pinterest fa-lg"></i></span>
