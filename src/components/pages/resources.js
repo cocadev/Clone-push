@@ -67,10 +67,10 @@ const Resources = () => {
               <div className='col-md-3 mt-3'>
                 <h3>Articles in this section</h3>
                 <div>
-                  <p className={clsx('resource-btn', active === 1 && 'border-active')} onClick={()=>setActive(1)}>How do I create an Open Sea account?</p>
-                  <p className={clsx('resource-btn', active === 2 && 'border-active')} onClick={()=>setActive(2)}>Which blockchains does OpenSea support?</p>
+                  <p className={clsx('resource-btn', active === 1 && 'border-active')} onClick={()=>setActive(1)}>How do I create an Metasalt account?</p>
+                  <p className={clsx('resource-btn', active === 2 && 'border-active')} onClick={()=>setActive(2)}>Which blockchains does Metasalt support?</p>
                   <p className={clsx('resource-btn', active === 3 && 'border-active')} onClick={()=>setActive(3)}>What is a crypto?</p>
-                  <p className={clsx('resource-btn', active === 4 && 'border-active')} onClick={()=>setActive(4)}>What crypto wallets can I use with Opensea?</p>
+                  <p className={clsx('resource-btn', active === 4 && 'border-active')} onClick={()=>setActive(4)}>What crypto wallets can I use with Metasalt?</p>
                 </div>
               </div>
               <div className='col-md-9 mt-3'>
@@ -91,7 +91,7 @@ const Resources = () => {
 function ResourceItem1(){
   return(
     <div>
-      <h2>How do I create an Open Sea account?</h2>
+      <h2>How do I create an Metasalt account?</h2>
       This guide explains the three things you'll need in place to open your account and start buying or selling NFTs on OpenSea.
     </div>
   )
@@ -100,7 +100,7 @@ function ResourceItem1(){
 function ResourceItem2(){
   return(
     <div>
-      <h2>Which blockchains does OpenSea support?</h2>
+      <h2>Which blockchains does Metasalt support?</h2>
       You can get ETH, the digital currency that fuels transactions on the Ethereum blockchain, from a digital currency exchange like Coinbase. You will need ETH to "mint" an NFT, purchase an NFT, and for gas fees to complete transactions. Gas fees are a bit of a tricky concept, but we simplify the basics here.  If you’re interested in the technical details of gas, read Jeff Coleman’s Stack Exchange post. 
     </div>
   )
@@ -118,12 +118,12 @@ function ResourceItem3(){
 function ResourceItem4(){
   return(
     <div>
-      <h2>What crypto wallets can I use with Opensea?</h2>
+      <h2>What crypto wallets can I use with Metasalt?</h2>
       Watch our tutorial to learn how to install a crypto wallet to connect with OpenSea. <br/><br/>
 
       All transactions connected to your wallet address can be found on etherscan.io. It's always a good idea to check Etherscan after completing each transaction.<br/><br/>
 
-      Why do you need a wallet before buying and selling on OpenSea? <br/><br/>
+      Why do you need a wallet before buying and selling on Metasalt? <br/><br/>
 
       <img src='https://support.opensea.io/hc/article_attachments/4412872829075/Screen_Shot_2021-12-16_at_5.36.21_AM.png' alt='' style={{ width: 400}}/>
     </div>

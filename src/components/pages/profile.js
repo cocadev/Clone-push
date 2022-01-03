@@ -1,54 +1,46 @@
 import React, { useState, useEffect } from 'react';
 import Footer from '../components/footer';
 import { createGlobalStyle } from 'styled-components';
-import { useMoralisWeb3Api } from 'react-moralis';
+import { useMoralis, useMoralisWeb3Api } from 'react-moralis';
 import { ALL_NFT_CONTRACT_ADDRESS } from '../components/constants/keys';
 import NftCard from '../components/NftCard';
 import { SmallLoading } from '../components/loading';
 import { navigate } from '@reach/router';
+import clsx from 'clsx';
 
 const GlobalStyles = createGlobalStyle`
-  header#myHeader.navbar.sticky.white {
-    background: #403f83;
-    border-bottom: solid 1px #403f83;
+  header#myHeader {
+    background: #fff!important;
+    box-shadow: rgb(4 17 29 / 25%) 0px 0px 8px 0px;
   }
-  header#myHeader.navbar .search #quick_search{
-    color: #fff;
-    background: rgba(255, 255, 255, .1);
+  .navbar .menu-line, .navbar .menu-line1, .navbar .menu-line2{
+    background: #000!important;
   }
-  header#myHeader.navbar.white .btn, .navbar.white a, .navbar.sticky.white a{
-    color: #fff;
-  }
-  header#myHeader .dropdown-toggle::after{
-    color: rgba(255, 255, 255, .5);;
-  }
-  header#myHeader .logo .d-block{
-    display: none !important;
-  }
-  header#myHeader .logo .d-none{
-    display: block !important;
-  }
-  .demo-icon-wrap-s2 span {
-    color: #fff;
+  header#myHeader.navbar.white .btn, .navbar.white a, .navbar.sticky.white a, .dropdown{
+    color: #000;
   }
   @media only screen and (max-width: 1199px) {
     .navbar{
       background: #403f83;
     }
     .navbar .menu-line, .navbar .menu-line1, .navbar .menu-line2{
-      background: #fff;
+      background: #000;
     }
     .item-dropdown .dropdown a{
-      color: #fff !important;
+      color: #000 !important;
     }
   }
 `;
 
 const ProfilePage = () => {
 
+  const { user } = useMoralis();
   const [isLoading, setIsLoading] = useState(false);
   const [allData, setAllData] = useState([]);
+  const [isActive, setIsActive] = useState(1);
   const Web3Api = useMoralisWeb3Api();
+  const ethAddress = user?.get('ethAddress')
+  const myaddress = ethAddress ? (ethAddress.substr(0, 6) + '...' + ethAddress.substr(-4)) : '-'
 
   useEffect(() => {
     setTimeout(() => {
@@ -70,28 +62,45 @@ const ProfilePage = () => {
     <div>
       <GlobalStyles />
 
-      <section className='jumbotron breadcumb no-bg' style={{ backgroundImage: `url(${'./img/background/subheader.jpg'})` }}>
-        <div className='mainbreadcumb'>
-          <div className='container'>
-            <div className='row m-10-hor'>
-              <div className='col-12'>
-                <h1 className='text-center'>Profile</h1>
-              </div>
-            </div>
-          </div>
+      <section 
+        className='jumbotron breadcumb no-bg mt-90' 
+        // style={{ backgroundImage: `url(${'./img/background/subheader.jpg'})` }}
+        style={{ background: '#e5e8eb' }}  
+      >
+        <div className='mainbreadcumb' style={{ height: 60}}>
+
         </div>
       </section>
-      {isLoading && <SmallLoading />}
-      <section className='container'>
-        <div className='flex flex-wrap center mt-30' style={{ alignItems: 'center', justifyContent: 'center' }}>
+
+      <section className=''>
+
+        <div className='d-center'>
+          <img className='profile-avatar' src='https://storage.googleapis.com/opensea-static/opensea-profile/15.png' alt='avatar'/><br/>
+          <h2>{'Unnamed'}</h2>
+          <div style={{marginTop: -7 }}>{myaddress}</div>          
+          <div>Joined December 2021</div>
+        </div>
+
+        <div className='profile-header'>
+          <div className={clsx('profile-header-btn', isActive === 1 && 'pbtn-active')} onClick={()=>setIsActive(1)}><i className="wm icon_wallet"></i> &nbsp;&nbsp;&nbsp;Collected&nbsp;&nbsp;&nbsp;4</div>
+          <div className={clsx('profile-header-btn', isActive === 2 && 'pbtn-active')} onClick={()=>setIsActive(2)}><i className="wm icon_bag_alt"></i>&nbsp;&nbsp;&nbsp;Created&nbsp;&nbsp;&nbsp;0</div>
+          <div className={clsx('profile-header-btn', isActive === 3 && 'pbtn-active')} onClick={()=>setIsActive(3)}><i className="wm icon_heart_alt"></i>&nbsp;&nbsp;&nbsp;Favorited&nbsp;&nbsp;&nbsp;0</div>
+          <div className={clsx('profile-header-btn', isActive === 4 && 'pbtn-active')} onClick={()=>setIsActive(4)}><i className="wm icon_search"></i>&nbsp;&nbsp;&nbsp;Hidden&nbsp;&nbsp;&nbsp;0</div>
+          <div className={clsx('profile-header-btn', isActive === 5 && 'pbtn-active')} onClick={()=>setIsActive(5)}><i className="wm icon_clock_alt"></i>&nbsp;&nbsp;&nbsp;Activity&nbsp;&nbsp;&nbsp;0</div>
+          <div className={clsx('profile-header-btn', isActive === 6 && 'pbtn-active')} onClick={()=>setIsActive(6)}><i className="wm icon_tag_alt"></i>&nbsp;&nbsp;&nbsp;Offers&nbsp;&nbsp;&nbsp;0</div>
+        </div>
+        
+        {isLoading && <SmallLoading />}
+
+        <div className='flex flex-wrap center mt-50' style={{ alignItems: 'center', justifyContent: 'center' }}>
           {
-            allData.map((item, index) => {
+            isActive === 1 && allData.map((item, index) => {
               if (!item.metadata) {
                 return null
               }
               const { name, image, price } = JSON.parse(item.metadata)
               return (
-                <div key={index} onClick={() => navigate(`/allnfts/${item.token_id}`)}>
+                <div key={index} onClick={() => navigate(`/metasaltTokens/${item.token_id}`)}>
                   <NftCard
                     nft={{
                       preview_image_url: image,

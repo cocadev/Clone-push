@@ -44,7 +44,7 @@ const slidermain = () => (
         <div className="spacer-10"></div>
         <Reveal className='onStep' keyframes={fadeInUp} delay={800} duration={900} triggerOnce>
           <div className='flex row'>
-            <span onClick={() => window.open("/#", "_self")} className="btn-main lead">Explore</span>
+            <span onClick={() => window.open("/explore")} className="btn-main lead">Explore</span>
             <span onClick={() => navigate('/create')} className="btn-main ml-10">Create</span>
           </div>
           <div className="mb-sm-30"></div>

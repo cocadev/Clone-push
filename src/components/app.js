@@ -5,7 +5,6 @@ import Header from './menu/header';
 import Home from './pages/home';
 import Explore from './pages/explore';
 import RankingRedux from './pages/RankingRedux';
-import Auction from './pages/Auction';
 import Helpcenter from './pages/helpcenter';
 import Colection from './pages/colection';
 import ItemDetailRedux from './pages/ItemDetailRedux';
@@ -34,6 +33,7 @@ import Minter from './pages/Minter';
 import ProfilePage from './pages/profile';
 import NftDetail from './pages/ItemDetail';
 import Resources from './pages/resources';
+import LiveAuction from './pages/liveAuction';
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -79,7 +79,6 @@ const App = () => {
           </Home>
           <Explore path="/explore" />
           <Colection path="/colection/:collectionId" />
-          <Auction path="/Auction" />
           <ItemDetailRedux path="/ItemDetail/:nftId" />
           <Helpcenter path="/helpcenter" />
           <Resources path="/resources" />
@@ -93,7 +92,8 @@ const App = () => {
           <RankingRedux path="/rangking" />
           <Minter path="/minter" />
           <Auth path="/auth" />
-          
+          <LiveAuction path="/live" />
+
           <AllNFTs path="/metasaltTokens" />
           <NftDetail path="/metasaltTokens/:id" />
 

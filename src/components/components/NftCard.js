@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 
-const NftCard = ({ nft, mine }) => {
+const NftCard = ({ nft, mine, auction }) => {
 
   return (
     <div className='nft-card' style={{ height: mine ? 280 : 300}}>
@@ -17,8 +17,8 @@ const NftCard = ({ nft, mine }) => {
           <div> <img src={'https://storage.opensea.io/files/6f8e2979d428180222796ff4a33ab929.svg'} alt='eth' style={{ width: 7, marginRight: 3, marginTop: -2 }} />{nft.price}</div>
         </div>
         {!mine && <div className='d-row justify-betwen f-14' style={{ marginTop: -2, }}>
-          <div></div>
-          <div>a day left</div>
+          <div>{auction ? '': 'My NFT'}</div>
+          <div><span aria-hidden="true" className="icon_clock_alt" style={{ fontSize: 11}}></span>&nbsp;{auction ? 'a day left': ''}</div>
         </div>}
         <div className='d-row justify-betwen f-14' style={{ marginTop: 5, }}>
           {!mine && <div className='buy-now'></div>}

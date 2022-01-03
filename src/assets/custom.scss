@@ -74,7 +74,7 @@ $color_more: #403f83;
 }
 .d-row {
   display: flex;
-  flex-direction: row;
+  flex-direction: row!important;
 }
 .align-center {
   align-items: center;
@@ -91,13 +91,28 @@ $color_more: #403f83;
 .mt-10 {
   margin-top: 10px;
 }
-
+.mt-30 {
+  margin-top: 30px;
+}
+.mt-50 {
+  margin-top: 50px;
+}
+.mt-90 {
+  margin-top: 90px;
+}
+.m-10 {
+  margin: 10px;
+}
+.p-10 {
+  padding: 10px;
+}
 .f-14 {
   font-size: 13px;
 }
 
 .d-center{
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -149,4 +164,45 @@ $color_more: #403f83;
 
 .border-active {
   border: 1px solid #2081e2;
+}
+
+
+// profile
+.profile-avatar {
+  border: 2px solid rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
+  margin-top: -160px;
+  border-radius: 50%;
+  width: 130px;
+  min-width: 130px;
+  height: 130px;
+  min-height: 130px;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.profile-header {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #e5e8eb;
+}
+
+.profile-header-btn {
+  padding: 18px 30px;
+  color: #666;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  &:hover{
+    color: #000;
+  }
+}
+
+.pbtn-active {
+  border-bottom: 4px solid rgb(32, 129, 226);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }

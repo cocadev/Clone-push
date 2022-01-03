@@ -78,11 +78,11 @@ const NftDetail = function () {
         <div className='row mt-md-5 pt-md-4'>
 
           <div className="col-md-6 text-center">
-            {!video && <img src={image} className="img-fluid img-rounded mb-sm-30" alt="" />}
+            {!video && <img src={image} className="w-full" alt="" />}
             {isLoading && <SmallLoading />}
           </div>
           <div className="col-md-6">
-            <div className="item_info">
+            <div className="item_info p-10">
               {/* Auctions ends in
               <div className="de_countdown">
                 <Clock deadline="December, 30, 2021" />
