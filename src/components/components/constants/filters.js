@@ -1,51 +1,67 @@
 export const categories = [
     {
-        value: 'art',
-        label: 'Art'
+        value: 'all_items',
+        label: 'All items'
     },
     {
-        value: 'music',
-        label: 'Music'
+        value: 'single_items',
+        label: 'Single items'
     },
     {
-        value: 'domain_names',
-        label: 'Domain Names'
+        value: 'bundles',
+        label: 'Bundles'
     },
-    {
-        value: 'virtual_world',
-        label: 'Virtual World'
-    },
-    {
-        value: 'trading_cards',
-        label: 'Trading Cards'
-    },
-    {
-        value: 'collectibles',
-        label: 'Collectibles'
-    },
-    {
-        value: 'sports',
-        label: 'Sports'
-    },
-    {
-        value: 'utility',
-        label: 'Utility'
-    }
 ];
 
 export const status = [
     {
-        value: 'buy_now',
-        label: 'Buy Now'
+        value: 'recently_listed',
+        label: 'Recently Listed'
     },
     {
-        value: 'on_auction',
-        label: 'On Auction'
+        value: 'recently_created',
+        label: 'Recently Created'
     },
     {
-        value: 'has_offers',
-        label: 'Has Offers'
+        value: 'recently_sold',
+        label: 'Recently Sold'
     },
+    {
+        value: 'recently_sold',
+        label: 'Recently Sold'
+    },
+    {
+        value: 'recently_received',
+        label: 'Recently Received'
+    },
+    {
+        value: 'ending_soon',
+        label: 'Ending Soon'
+    },
+    {
+        value: 'price_low_to_high',
+        label: 'Price: Low to High'
+    },
+    {
+        value: 'price_high_to_low',
+        label: 'Price: Low to High'
+    },
+    {
+        value: 'highest_last_sale',
+        label: 'Highest Last Sale'
+    },
+    {
+        value: 'most_viewed',
+        label: 'Most Viewed'
+    },
+    {
+        value: 'most_favorited',
+        label: 'Most Favorited'
+    },
+    {
+        value: 'oldest',
+        label: 'Oldest'
+    }
 ];
 
 export const itemsType = [

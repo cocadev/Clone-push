@@ -7,6 +7,7 @@ import NftCard from '../components/NftCard';
 import { SmallLoading } from '../components/loading';
 import { navigate } from '@reach/router';
 import clsx from 'clsx';
+import ProfileFilterBar from '../components/ProfileFilterBar';
 
 const GlobalStyles = createGlobalStyle`
   header#myHeader {
@@ -62,34 +63,39 @@ const ProfilePage = () => {
     <div>
       <GlobalStyles />
 
-      <section 
-        className='jumbotron breadcumb no-bg mt-90' 
+      <section
+        className='jumbotron breadcumb no-bg mt-90'
         // style={{ backgroundImage: `url(${'./img/background/subheader.jpg'})` }}
-        style={{ background: '#e5e8eb' }}  
+        style={{ background: '#e5e8eb' }}
       >
-        <div className='mainbreadcumb' style={{ height: 60}}>
+        <div className='mainbreadcumb' style={{ height: 60 }}>
 
         </div>
       </section>
-
-      <section className=''>
+      <div className='share-btn'>
+        <span aria-hidden="true" className="social_share"></span>
+        <span aria-hidden="true" className="icon_cog" onClick={()=>navigate('/settings')}></span>
+      </div>
+      <section>
 
         <div className='d-center'>
-          <img className='profile-avatar' src='https://storage.googleapis.com/opensea-static/opensea-profile/15.png' alt='avatar'/><br/>
+          <img className='profile-avatar' src='https://storage.googleapis.com/opensea-static/opensea-profile/15.png' alt='avatar' /><br />
           <h2>{'Unnamed'}</h2>
-          <div style={{marginTop: -7 }}>{myaddress}</div>          
+          <div style={{ marginTop: -7 }}>{myaddress}</div>
           <div>Joined December 2021</div>
         </div>
 
         <div className='profile-header'>
-          <div className={clsx('profile-header-btn', isActive === 1 && 'pbtn-active')} onClick={()=>setIsActive(1)}><i className="wm icon_wallet"></i> &nbsp;&nbsp;&nbsp;Collected&nbsp;&nbsp;&nbsp;4</div>
-          <div className={clsx('profile-header-btn', isActive === 2 && 'pbtn-active')} onClick={()=>setIsActive(2)}><i className="wm icon_bag_alt"></i>&nbsp;&nbsp;&nbsp;Created&nbsp;&nbsp;&nbsp;0</div>
-          <div className={clsx('profile-header-btn', isActive === 3 && 'pbtn-active')} onClick={()=>setIsActive(3)}><i className="wm icon_heart_alt"></i>&nbsp;&nbsp;&nbsp;Favorited&nbsp;&nbsp;&nbsp;0</div>
-          <div className={clsx('profile-header-btn', isActive === 4 && 'pbtn-active')} onClick={()=>setIsActive(4)}><i className="wm icon_search"></i>&nbsp;&nbsp;&nbsp;Hidden&nbsp;&nbsp;&nbsp;0</div>
-          <div className={clsx('profile-header-btn', isActive === 5 && 'pbtn-active')} onClick={()=>setIsActive(5)}><i className="wm icon_clock_alt"></i>&nbsp;&nbsp;&nbsp;Activity&nbsp;&nbsp;&nbsp;0</div>
-          <div className={clsx('profile-header-btn', isActive === 6 && 'pbtn-active')} onClick={()=>setIsActive(6)}><i className="wm icon_tag_alt"></i>&nbsp;&nbsp;&nbsp;Offers&nbsp;&nbsp;&nbsp;0</div>
+          <div className={clsx('profile-header-btn', isActive === 1 && 'pbtn-active')} onClick={() => setIsActive(1)}><i className="wm icon_wallet"></i> &nbsp;&nbsp;&nbsp;Collected&nbsp;&nbsp;&nbsp;4</div>
+          <div className={clsx('profile-header-btn', isActive === 2 && 'pbtn-active')} onClick={() => setIsActive(2)}><i className="wm icon_bag_alt"></i>&nbsp;&nbsp;&nbsp;Created&nbsp;&nbsp;&nbsp;0</div>
+          <div className={clsx('profile-header-btn', isActive === 3 && 'pbtn-active')} onClick={() => setIsActive(3)}><i className="wm icon_heart_alt"></i>&nbsp;&nbsp;&nbsp;Favorited&nbsp;&nbsp;&nbsp;0</div>
+          <div className={clsx('profile-header-btn', isActive === 4 && 'pbtn-active')} onClick={() => setIsActive(4)}><i className="wm icon_search"></i>&nbsp;&nbsp;&nbsp;Hidden&nbsp;&nbsp;&nbsp;0</div>
+          <div className={clsx('profile-header-btn', isActive === 5 && 'pbtn-active')} onClick={() => setIsActive(5)}><i className="wm icon_clock_alt"></i>&nbsp;&nbsp;&nbsp;Activity&nbsp;&nbsp;&nbsp;0</div>
+          <div className={clsx('profile-header-btn', isActive === 6 && 'pbtn-active')} onClick={() => setIsActive(6)}><i className="wm icon_tag_alt"></i>&nbsp;&nbsp;&nbsp;Offers&nbsp;&nbsp;&nbsp;0</div>
         </div>
-        
+
+        <ProfileFilterBar />
+
         {isLoading && <SmallLoading />}
 
         <div className='flex flex-wrap center mt-50' style={{ alignItems: 'center', justifyContent: 'center' }}>

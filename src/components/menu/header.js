@@ -246,7 +246,9 @@ const Header = function () {
                         <div className='item-dropdown'>
                           <div className="dropdown" onClick={closeMenu4}>
                             <NavLink to={isAuthenticated ? "/profile" : "/auth"} onClick={() => btn_icon(!showmenu)}>Profile</NavLink>
+                            <NavLink to="favorites" onClick={() => btn_icon(!showmenu)}>Favorites</NavLink>
                             <NavLink to="/Author/1" onClick={() => btn_icon(!showmenu)}>My Collections</NavLink>
+                            <NavLink to="settings" onClick={() => btn_icon(!showmenu)}>Settings</NavLink>
                             {isAuthenticated && <a href="/" onClick={onLogout}>Log Out</a>}
                           </div>
                         </div>
@@ -359,7 +361,9 @@ const Header = function () {
                         <div className='item-dropdown'>
                           <div className="dropdown" onClick={closeMenu4}>
                             <NavLink to={isAuthenticated ? "/profile" : "/auth"}>Profile</NavLink>
+                            <NavLink to="favorites">Favorites</NavLink>
                             <NavLink to="/Author/1">My Collections</NavLink>
+                            <NavLink to="settings">Settings</NavLink>
                             {isAuthenticated && <a onClick={onLogout} href="/">Log Out</a>}
                           </div>
                         </div>

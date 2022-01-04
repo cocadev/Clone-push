@@ -3099,9 +3099,11 @@ i.font60 {
     font-size: 14px;
     margin-bottom: 30px;
     margin-top: -14px;
+    display: flex;
+    flex-direction: row;
     .dropdownSelect{
       display: inline-block;
-      width: 200px;
+      width: 400px;
       position: relative;
       margin-right: 10px;
       margin-bottom: 5px;
