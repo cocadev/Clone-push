@@ -151,6 +151,41 @@ $color_more: #403f83;
   border-top-right-radius: 8px;
 }
 
+.nft-card-big {
+  width: 302px;
+  height: 300px;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  margin: 12px 8px;
+  &:hover {
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; 
+    .buy-now::after{
+      content: 'Buy Now';
+      font-size: 15px;
+      color: #2081e2;
+      font-weight: 600;
+    }
+  }
+}
+
+.nft-card-header-big {
+  width: 300px; 
+  height: 300px;
+  overflow: hidden; 
+  display: flex;
+  justify-content: center; 
+  align-items: center
+}
+
+.nft-card-header-big img{
+  width: auto;
+  height: 300px; 
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+
 .resource-btn {
   border-radius: 5px;
   padding: 8px 12px;
@@ -173,6 +208,17 @@ $color_more: #403f83;
   min-width: 130px;
   height: 130px;
   min-height: 130px;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.profile-banner {
+  border: 2px solid rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
+  margin-top: -160px;
+  border-radius: 50%;
+  width: 130px;
+  height: 60px;
   z-index: 100;
   cursor: pointer;
 }
@@ -266,7 +312,8 @@ $color_more: #403f83;
 
 .btn-custom {
   border: 2px solid #e3e8eb;
-  padding: 8px 30px;
+  padding: 7px 30px;
+  width: 120px;
   border-radius: 8px;
   cursor: pointer;
   &:hover{
