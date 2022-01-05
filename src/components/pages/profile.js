@@ -39,9 +39,15 @@ const ProfilePage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [allData, setAllData] = useState([]);
   const [isActive, setIsActive] = useState(1);
+  const [isBig, setIsBig] = useState(false);
+
   const Web3Api = useMoralisWeb3Api();
   const ethAddress = user?.get('ethAddress')
-  const myaddress = ethAddress ? (ethAddress.substr(0, 6) + '...' + ethAddress.substr(-4)) : '-'
+  const myaddress = ethAddress ? (ethAddress.substr(0, 6) + '...' + ethAddress.substr(-4)) : '-';
+
+  const username = user?.get('username') || 'Unnamed';
+  const avatar = user?.get('avatar') || 'https://storage.googleapis.com/opensea-static/opensea-profile/15.png'
+  const banner = user?.get('banner')
 
   useEffect(() => {
     setTimeout(() => {
@@ -55,7 +61,9 @@ const ProfilePage = () => {
     const c1 = { address: ALL_NFT_CONTRACT_ADDRESS, chain: "mumbai", };
     const nftOwners = await Web3Api.token.getNFTOwners(c1);
     console.log('nftOwners', nftOwners)
-    setAllData(nftOwners?.result.filter(item => item.owner_of === '0xBc6f27549a7f3ad4d88C9EFE83e6732b024DFe19'.toLowerCase()))
+    setAllData(nftOwners?.result)
+    // setAllData(nftOwners?.result.filter(item => item.owner_of === '0xBc6f27549a7f3ad4d88C9EFE83e6732b024DFe19'.toLowerCase()))
+
     setIsLoading(false)
   }
 
@@ -65,8 +73,7 @@ const ProfilePage = () => {
 
       <section
         className='jumbotron breadcumb no-bg mt-90'
-        // style={{ backgroundImage: `url(${'./img/background/subheader.jpg'})` }}
-        style={{ background: '#e5e8eb' }}
+        style={banner ? { backgroundImage: `url(${banner})`, backgroundPosition: 'center' } : {background: '#e5e8eb'}}
       >
         <div className='mainbreadcumb' style={{ height: 60 }}>
 
@@ -79,14 +86,14 @@ const ProfilePage = () => {
       <section>
 
         <div className='d-center'>
-          <img className='profile-avatar' src='https://storage.googleapis.com/opensea-static/opensea-profile/15.png' alt='avatar' /><br />
-          <h2>{'Unnamed'}</h2>
+          <img className='profile-avatar' src={avatar} alt='avatar' /><br />
+          <h2>{username}</h2>
           <div style={{ marginTop: -7 }}>{myaddress}</div>
           <div>Joined December 2021</div>
         </div>
 
         <div className='profile-header'>
-          <div className={clsx('profile-header-btn', isActive === 1 && 'pbtn-active')} onClick={() => setIsActive(1)}><i className="wm icon_wallet"></i> &nbsp;&nbsp;&nbsp;Collected&nbsp;&nbsp;&nbsp;4</div>
+          <div className={clsx('profile-header-btn', isActive === 1 && 'pbtn-active')} onClick={() => setIsActive(1)}><i className="wm icon_wallet"></i> &nbsp;&nbsp;&nbsp;Collected&nbsp;&nbsp;&nbsp;34</div>
           <div className={clsx('profile-header-btn', isActive === 2 && 'pbtn-active')} onClick={() => setIsActive(2)}><i className="wm icon_bag_alt"></i>&nbsp;&nbsp;&nbsp;Created&nbsp;&nbsp;&nbsp;0</div>
           <div className={clsx('profile-header-btn', isActive === 3 && 'pbtn-active')} onClick={() => setIsActive(3)}><i className="wm icon_heart_alt"></i>&nbsp;&nbsp;&nbsp;Favorited&nbsp;&nbsp;&nbsp;0</div>
           <div className={clsx('profile-header-btn', isActive === 4 && 'pbtn-active')} onClick={() => setIsActive(4)}><i className="wm icon_search"></i>&nbsp;&nbsp;&nbsp;Hidden&nbsp;&nbsp;&nbsp;0</div>
@@ -94,7 +101,10 @@ const ProfilePage = () => {
           <div className={clsx('profile-header-btn', isActive === 6 && 'pbtn-active')} onClick={() => setIsActive(6)}><i className="wm icon_tag_alt"></i>&nbsp;&nbsp;&nbsp;Offers&nbsp;&nbsp;&nbsp;0</div>
         </div>
 
-        <ProfileFilterBar />
+        <ProfileFilterBar 
+          isBig={isBig}
+          onSetBig={(x)=>setIsBig(x)}
+        />
 
         {isLoading && <SmallLoading />}
 
@@ -119,6 +129,7 @@ const ProfilePage = () => {
                       id: ''
                     }}
                     mine={true}
+                    big={isBig}
                   />
                 </div>)
             })
