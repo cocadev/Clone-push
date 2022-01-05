@@ -1,15 +1,19 @@
 import React, { memo } from 'react';
+import clsx from 'clsx';
 
-const NftCard = ({ nft, mine, auction }) => {
+const NftCard = ({ nft, mine, auction, big }) => {
+
+  const height = mine ? big ? 380 : 280 : big ? 400 : 300;
+  const maxWidth = big ? 230 : 130;
 
   return (
-    <div className='nft-card' style={{ height: mine ? 280 : 300}}>
-      <div className='nft-card-header'>
+    <div className={clsx(big ? 'nft-card-big' : 'nft-card')} style={{ height }}>
+      <div className={clsx(big ? 'nft-card-header-big' : 'nft-card-header')}>
         <img src={nft.preview_image_url} alt={'nft'} />
       </div>
       <div style={{ padding: 12 }}>
         <div className='d-row justify-betwen f-14'>
-          <div style={{ whiteSpace: 'nowrap', overflow: 'hidden', maxWidth: 130 }}>{nft.title}</div>
+          <div style={{ whiteSpace: 'nowrap', overflow: 'hidden', maxWidth }}>{nft.title}</div>
           <div>Price</div>
         </div>
         <div className='d-row justify-betwen f-14' style={{ marginTop: -2, fontWeight: '600' }}>
