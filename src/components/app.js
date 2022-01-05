@@ -36,6 +36,7 @@ import Resources from './pages/resources';
 import LiveAuction from './pages/liveAuction';
 import SettingsPage from './pages/settings';
 import Finance from './pages/finance';
+import Fiat from './pages/fiat';
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -97,6 +98,7 @@ const App = () => {
           <LiveAuction path="/live" />
           <SettingsPage path="/settings" />
           <Finance path="/finance" />
+          <Fiat path="/fiat" />
 
           <AllNFTs path="/metasaltTokens" />
           <NftDetail path="/metasaltTokens/:id" />
