@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { categories, status } from './constants/filters';
 import { filterCategories, filterStatus, filterNftTitle } from '../../store/actions';
 
-const ProfileFilterBar = () => {
+const ProfileFilterBar = (props) => {
   const dispatch = useDispatch();
   const handleCategory = useCallback((option) => {
     const { value } = option;
@@ -80,9 +80,12 @@ const ProfileFilterBar = () => {
             />
           </div>
 
-          <div className='share-btn' style={{ position: 'relative', marginTop: 13, right: 0, marginRight: 10 }}>
-            <span aria-hidden="true" className="icon_grid-2x2"></span>
-            <span aria-hidden="true" className="icon_grid-3x3"></span>
+          <div 
+            className='share-btn' 
+            style={{ position: 'relative', marginTop: 13, right: 0, marginRight: 10 }}
+          >
+            <span aria-hidden="true" className="icon_grid-2x2" onClick={()=>props.onSetBig(false)} style={{ color: !props.isBig ? '#000' : '#727272'}}></span>
+            <span aria-hidden="true" className="icon_grid-3x3" onClick={()=>props.onSetBig(true)} style={{ color: props.isBig ? '#000' : '#727272'}}></span>
           </div>
 
         </div>
