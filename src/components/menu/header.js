@@ -158,7 +158,7 @@ const Header = function () {
                       {openMenu && (
                         <div className='item-dropdown'>
                           <div className="dropdown" onClick={closeMenu}>
-                            <NavLink to="/avatar" onClick={() => btn_icon(!showmenu)}>Avatar</NavLink>
+                            <NavLink to={isAuthenticated ? "/avatar" : "/wallet"} onClick={() => btn_icon(!showmenu)}>Avatar</NavLink>
                             <NavLink to={isAuthenticated ? "/create" : "/wallet"} onClick={() => btn_icon(!showmenu)}>NFTs</NavLink>
                           </div>
                         </div>
@@ -177,7 +177,7 @@ const Header = function () {
                       {openMenu1 && (
                         <div className='item-dropdown'>
                           <div className="dropdown" onClick={closeMenu1}>
-                            <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>METASALT </NavLink>
+                            <NavLink to="/metasaltTokens" onClick={() => btn_icon(!showmenu)}>METASALT </NavLink>
                             <NavLink to="/art" onClick={() => btn_icon(!showmenu)}>Art</NavLink>
                             <NavLink to="/boats" onClick={() => btn_icon(!showmenu)}>Boats</NavLink>
                             <NavLink to="/cars" onClick={() => btn_icon(!showmenu)}>Cars</NavLink>
@@ -186,7 +186,7 @@ const Header = function () {
                             <NavLink to="/planes" onClick={() => btn_icon(!showmenu)}>Planes</NavLink>
                             <NavLink to="/realEstate" onClick={() => btn_icon(!showmenu)}>Real Estate</NavLink>
                             <NavLink to="/watches" onClick={() => btn_icon(!showmenu)}>Watches</NavLink>
-                            <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>Wine</NavLink>
+                            <NavLink to="/wine" onClick={() => btn_icon(!showmenu)}>Wine</NavLink>
                           </div>
                         </div>
                       )}
@@ -246,8 +246,8 @@ const Header = function () {
                         <div className='item-dropdown'>
                           <div className="dropdown" onClick={closeMenu4}>
                             <NavLink to={isAuthenticated ? "/profile" : "/auth"} onClick={() => btn_icon(!showmenu)}>Profile</NavLink>
-                            <NavLink to="favorites" onClick={() => btn_icon(!showmenu)}>Favorites</NavLink>
-                            <NavLink to="/Author/1" onClick={() => btn_icon(!showmenu)}>My Collections</NavLink>
+                            <NavLink to="/profile" onClick={() => btn_icon(!showmenu)}>Favorites</NavLink>
+                            <NavLink to="/collections" onClick={() => btn_icon(!showmenu)}>My Collections</NavLink>
                             {isAuthenticated && <NavLink to="settings" onClick={() => btn_icon(!showmenu)}>Settings</NavLink>}
                             {isAuthenticated && <a href="/" onClick={onLogout}>Log Out</a>}
                           </div>
@@ -274,7 +274,7 @@ const Header = function () {
                         {openMenu && (
                         <div className='item-dropdown'>
                           <div className="dropdown" onClick={closeMenu}>
-                            <NavLink to="/avatar">Avatar</NavLink>
+                            <NavLink to={isAuthenticated ? "/avatar" : "/wallet"}>Avatar</NavLink>
                             <NavLink to={isAuthenticated ? "/create" : "/wallet"}>NFTs</NavLink>
                           </div>
                       </div>
@@ -293,8 +293,8 @@ const Header = function () {
                         <div className='item-dropdown'>
                           <div className="dropdown" onClick={closeMenu1}>
                             <NavLink to="/metasaltTokens">METASALT Tokens</NavLink>
-                            <NavLink to="/explore">Art</NavLink>
-                            <NavLink to="/explore">Boats</NavLink>
+                            <NavLink to="/art">Art</NavLink>
+                            <NavLink to="/boats">Boats</NavLink>
                             <NavLink to="/carexplores">Cars</NavLink>
                             <NavLink to="/fashion">Fashion</NavLink>
                             <NavLink to="/jewelry">Jewelry</NavLink>
@@ -361,8 +361,8 @@ const Header = function () {
                         <div className='item-dropdown'>
                           <div className="dropdown" onClick={closeMenu4}>
                             <NavLink to={isAuthenticated ? "/profile" : "/auth"}>Profile</NavLink>
-                            <NavLink to="favorites">Favorites</NavLink>
-                            <NavLink to="/Author/1">My Collections</NavLink>
+                            {isAuthenticated && <NavLink to="/profile">Favorites</NavLink>}
+                            {isAuthenticated && <NavLink to="/collections">My Collections</NavLink>}
                             {isAuthenticated && <NavLink to="settings">Settings</NavLink>}
                             {isAuthenticated && <a onClick={onLogout} href="/">Log Out</a>}
                           </div>

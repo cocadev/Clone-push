@@ -71,6 +71,8 @@ const Resources = () => {
                   <p className={clsx('resource-btn', active === 2 && 'border-active')} onClick={()=>setActive(2)}>Which blockchains does Metasalt support?</p>
                   <p className={clsx('resource-btn', active === 3 && 'border-active')} onClick={()=>setActive(3)}>What is a crypto?</p>
                   <p className={clsx('resource-btn', active === 4 && 'border-active')} onClick={()=>setActive(4)}>What crypto wallets can I use with Metasalt?</p>
+                  <p className={clsx('resource-btn', active === 5 && 'border-active')} onClick={()=>setActive(5)}>Can I buy Metasalt tokens using fiat?</p>
+                  <p className={clsx('resource-btn', active === 6 && 'border-active')} onClick={()=>setActive(6)}>Can I use Uniswap to get Metasalt tokens?</p>
                 </div>
               </div>
               <div className='col-md-9 mt-3'>
@@ -78,6 +80,8 @@ const Resources = () => {
                 {active === 2 && <ResourceItem2 />}
                 {active === 3 && <ResourceItem3 />}
                 {active === 4 && <ResourceItem4 />}
+                {active === 5 && <ResourceItem5 />}
+                {active === 6 && <ResourceItem6 />}
               </div>
             </div>
           </div>
@@ -119,13 +123,43 @@ function ResourceItem4(){
   return(
     <div>
       <h2>What crypto wallets can I use with Metasalt?</h2>
-      Watch our tutorial to learn how to install a crypto wallet to connect with OpenSea. <br/><br/>
+      Watch our tutorial to learn how to install a crypto wallet to connect with Metasalt. <br/><br/>
 
       All transactions connected to your wallet address can be found on etherscan.io. It's always a good idea to check Etherscan after completing each transaction.<br/><br/>
 
       Why do you need a wallet before buying and selling on Metasalt? <br/><br/>
 
-      <img src='https://support.opensea.io/hc/article_attachments/4412872829075/Screen_Shot_2021-12-16_at_5.36.21_AM.png' alt='' style={{ width: 400}}/>
+      <img src='./img/misc/buy-crypto.png' alt='' style={{ width: 400}}/>
+    </div>
+  )
+}
+
+function ResourceItem5(){
+  return(
+    <div>
+      <h2>What crypto wallets can I use with Metasalt?</h2>
+      Watch our tutorial to learn how to install a crypto wallet to connect with Metasalt. <br/><br/>
+
+      All transactions connected to your wallet address can be found on etherscan.io. It's always a good idea to check Etherscan after completing each transaction.<br/><br/>
+
+      Why do you need a wallet before buying and selling on Metasalt? <br/><br/>
+
+      <img src='./img/misc/buy-crypto.png' alt='' style={{ width: 400}}/>
+    </div>
+  )
+}
+
+function ResourceItem6(){
+  return(
+    <div>
+      <h2>What crypto wallets can I use with Metasalt?</h2>
+      Watch our tutorial to learn how to install a crypto wallet to connect with Metasalt. <br/><br/>
+
+      All transactions connected to your wallet address can be found on etherscan.io. It's always a good idea to check Etherscan after completing each transaction.<br/><br/>
+
+      Why do you need a wallet before buying and selling on Metasalt? <br/><br/>
+
+      <img src='./img/misc/uniswap.png' alt='' style={{ width: 400}}/>
     </div>
   )
 }

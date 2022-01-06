@@ -39,7 +39,7 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
-const News = () => {
+const Collections = () => {
 
   return (
     <div>
@@ -53,8 +53,8 @@ const News = () => {
           <div className='container'>
             <div className='row m-10-hor'>
               <div className='col-12 text-center'>
-                <h1>Newsletter</h1>
-                <p>Read all of our latest news and browse the history</p>
+                <h1>My Collections</h1>
+                <p>Create, curate, and manage collections of unique NFTs to share and sell.</p>
               </div>
             </div>
           </div>
@@ -63,7 +63,7 @@ const News = () => {
 
       <section className='container'>
         <div className="row">
-
+          <div className="btn-main" onClick={()=>alert('comming soon!')}>Create a collection</div>
           <h3 className="text-center">Comming Soon!</h3>
           <div className="spacer-single"></div>
 
@@ -75,4 +75,4 @@ const News = () => {
   )
 };
 
-export default memo(News);
+export default memo(Collections);

@@ -47,7 +47,7 @@ const GlobalStyles = createGlobalStyle`
 
 const Auth = () => {
 
-  const { Moralis, user, login, logout, isAuthenticated } = useMoralis();
+  const { Moralis, login } = useMoralis();
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -102,11 +102,8 @@ const Auth = () => {
           <div className='container'>
             <div className='row'>
               <div className="col-md-12 text-center">
-                <h1>Authentication</h1>
-                <p style={{ color: 'greenyellow'}}>Email: {user?.get('email') || '-'}</p>
-                <p style={{marginTop: -12, color: 'greenyellow'}}>Username: {user?.get('username') || '-'}</p>
-                <p style={{marginTop: -12, color: 'greenyellow'}}>EthAddress: {(user?.get('ethAddress') || '-')}</p>
-                {isAuthenticated && <p style={{ color: 'red', cursor: 'pointer'}} onClick={()=>logout()}>Log out</p>}
+                <h1>SIGN IN</h1>
+                <p>SELECT ONE OF THE OPTIONS BELOW</p>
               </div>
             </div>
           </div>
@@ -122,11 +119,19 @@ const Auth = () => {
               <div id="tabs2">
                 <Tabs fill defaultActiveKey="home">
 
-                  <Tab eventKey="home" title="Sign up using Email">
+
+                  <Tab eventKey="metamask" title="Metamask Login">
+                    <br /><br />
+                    <div style={{display: 'flex', justifyContent: 'center'}}>
+                      <Account />
+                    </div>
+                  </Tab>
+
+                  <Tab eventKey="home" title="Email Signup">
                     <div>
                       <br /><br />
                       <h3>Don't have an account? Register now.</h3>
-                      <p>Email is optional, but if you may have trouble recovering your account, so it may be worthwhile.</p>
+                      <p>Email sign-up is optional, but it can be useful to manage your account. However, you will need a wallet like Metamask to create, buy, or sell.</p>
 
                       <div className="spacer-10"></div>
 
@@ -183,11 +188,11 @@ const Auth = () => {
                       </div>
                     </div>
                   </Tab>
-                  <Tab eventKey="profile" title="Sign in using Email">
+                  <Tab eventKey="profile" title="Email Login">
                     <br /><br />
                     {!isForgot && <div>
                         <h3 className="mb10">Sign In</h3>
-                        <p>Login using an existing account or create a new account</p>
+                        <p>Login using an existing Email account or create a new account using Email. Note that you will need a wallet like Metamask to create, buy, or sell.</p>
 
                         <div className='row'>
                           <div className="col-md-6">
@@ -263,14 +268,7 @@ const Auth = () => {
                     </div>}
                   </Tab>
 
-                  <Tab eventKey="metamask" title="Sign up/in Metamask">
-                    <br /><br />
-                    <div style={{display: 'flex', justifyContent: 'center'}}>
-                      <Account />
-                    </div>
-                  </Tab>
-
-               
+              
                 </Tabs>
               </div>
             </div>

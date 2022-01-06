@@ -70,7 +70,7 @@ const logintwo= () => (
           <div className="feature-box f-boxed style-3 text-center">
               <div className="text">
                   <h4>Getting Started</h4>
-                  <p>yySed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam.</p>
+                  <p>Learn how to set up your wallet, get Metasalt tokesn, and create your very own NFTs.</p>
                   <Link to="" className="btn-main m-auto">Read more</Link>
               </div>
           </div>
@@ -80,7 +80,7 @@ const logintwo= () => (
           <div className="feature-box f-boxed style-3 text-center">
               <div className="text">
                   <h4>Buying</h4>
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam.</p>
+                  <p>Learn how to buy NFTs on the marketplace.</p>
                   <Link to="" className="btn-main m-auto">Read more</Link>
               </div>
           </div>
@@ -90,7 +90,7 @@ const logintwo= () => (
           <div className="feature-box f-boxed style-3 text-center">
               <div className="text">
                   <h4>Selling</h4>
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam.</p>
+                  <p>Learn how to sell NFTs on the marketplace.</p>
                   <Link to="" className="btn-main m-auto">Read more</Link>
               </div>
           </div>
@@ -100,7 +100,7 @@ const logintwo= () => (
           <div className="feature-box f-boxed style-3 text-center">
               <div className="text">
                   <h4>Creating</h4>
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam.</p>
+                  <p>Find out how you can earn Metasalt tokens for every NFT you create.</p>
                   <Link to="" className="btn-main m-auto">Read more</Link>
               </div>
           </div>
@@ -109,8 +109,8 @@ const logintwo= () => (
       <div className="col-lg-4 col-md-6 mb-4">
           <div className="feature-box f-boxed style-3 text-center">
               <div className="text">
-                  <h4>Partners</h4>
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam.</p>
+                  <h4>Buying Metasalt Tokens with fiat</h4>
+                  <p>Find out how you can buy Metasalt tokens using cash or swap ERC-20 tokens for Metasalt tokens on Uniswap.</p>
                   <Link to="" className="btn-main m-auto">Read more</Link>
               </div>
           </div>
@@ -119,8 +119,8 @@ const logintwo= () => (
       <div className="col-lg-4 col-md-6 mb-4">
           <div className="feature-box f-boxed style-3 text-center">
               <div className="text">
-                  <h4>Developers</h4>
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam.</p>
+                  <h4>Brand Owners</h4>
+                  <p>Learn how can create NFTs of your products.</p>
                   <Link to="" className="btn-main m-auto">Read more</Link>
               </div>
           </div>

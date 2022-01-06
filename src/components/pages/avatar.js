@@ -53,8 +53,7 @@ const News = () => {
           <div className='container'>
             <div className='row m-10-hor'>
               <div className='col-12 text-center'>
-                <h1>Newsletter</h1>
-                <p>Read all of our latest news and browse the history</p>
+                <h1>Create Avatar</h1>
               </div>
             </div>
           </div>
