@@ -3,7 +3,8 @@ import Footer from '../components/footer';
 import { createGlobalStyle } from 'styled-components';
 import { HOT_COLLECTIONS } from '../components/constants/hotCollections';
 import CollectionCard from '../components/CollectionCard';
-// import { COLLECTION_LISTS } from '../components/constants/collectionLists';
+import { COLLECTION_LISTS } from '../components/constants/collectionLists';
+import { redirectTo } from '@reach/router';
 
 const GlobalStyles = createGlobalStyle`
   header#myHeader {
@@ -31,15 +32,16 @@ const GlobalStyles = createGlobalStyle`
 
 const Collection = () => {
 
-  const banner = 'https://lh3.googleusercontent.com/kVVevhk9BBE5BSuIoQfkH5_5FVsPTJCR34wpVBf1ACURh9dfNaybChPgiicte10yb6SYVp5iMQNXaQrOnHXmRiiOtVxUzYJR3M1I=h600';
-  const title = 'Explore Art';
-  const description = 'An online community of makers, developers, and traders is pushing the art world into new territory. It all started with CryptoPunks, a set of 10,000 randomly generated punks that proved demand for the digital ownership of non-physical items and collectibles in 2017, and the market has evolved rapidly ever since.'
-  // const pathname = window.location.pathname.split('/');
-  // const art = pathname[pathname.length - 1]
 
-  // const artCol = COLLECTION_LISTS.find((item) => item.category === art)
+  const pathname = window.location.pathname.split('/');
+  const art = pathname[pathname.length - 1]
 
-  // console.log(art)
+  const artCol = COLLECTION_LISTS.find((item) => item.category === art)
+  if (!artCol) {
+    redirectTo('/')
+  }
+
+  const { banner, title, description, category } = artCol;
 
   return (
     <div>
@@ -61,22 +63,25 @@ const Collection = () => {
           <div className='text-center' style={{ maxWidth: 700 }}>{description}</div>
         </div>
 
-        <h3 className='text-center mt-90'>Trending collections in Art</h3>
+        <h3 className='text-center mt-90'>Trending collections in {category}</h3>
 
 
         <div className='flex flex-wrap center mt-10' style={{ alignItems: 'center', justifyContent: 'center' }}>
 
-          {HOT_COLLECTIONS.map((item, index) => (
-            <CollectionCard
-              key={index}
-              index={index + 1}
-              avatar={item.avatar_url}
-              banner={item.banner_url}
-              username={item.name}
-              uniqueId={item.unique_id}
-              collectionId={item.id}
-            />
-          ))}
+          {
+            HOT_COLLECTIONS
+              .filter((item) => item.category === category)
+              .map((item, index) => (
+                <CollectionCard
+                  key={index}
+                  index={index + 1}
+                  avatar={item.avatar_url}
+                  banner={item.banner_url}
+                  username={item.name}
+                  uniqueId={item.unique_id}
+                  collectionId={item.id}
+                />
+              ))}
         </div>
       </section>
       <Footer />

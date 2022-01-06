@@ -35,7 +35,7 @@ export const HOT_COLLECTIONS = [
         id: 5,
         name: 'iNFT Personality Pod Sale',
         avatar_url: 'https://lh3.googleusercontent.com/0LsJSNxzhiXQ-8TqwrMEJZuLgQnDTEweihqp32L_dXpkywpCIK4o8Fgs9JZDduK1Oj5Ek_xlBqd5lMIJoxSnWRi-GaknxnHINmy2H7Y=s130',
-        banner_url: 'https://lh3.googleusercontent.com/QL_soNRHBsOZYwXLEFZXhiL1WgRwsOiy3RSqAREAcl9bMxA482wbVJOVtHrqe-swaJh66bnA0mjeAlj81UkDmwVyJyVVlD1aZWXdRw=h600',
+        banner_url: 'https://lh3.googleusercontent.com/PaG7PILKFvHO6ezYERSM-F_zOmnt7zj3ImR5xvxCHDl9lDDefU5l8e7EJHulxj6hpI6frYk7UfjSoIwNgzzykMOZN8b-q0-o_-blsA=h200',
         unique_id: 'Alethea_AI',
         category: 'art'
     },
@@ -43,9 +43,9 @@ export const HOT_COLLECTIONS = [
         id: 6,
         name: 'rekt.news-hacks',
         avatar_url: 'https://lh3.googleusercontent.com/0CJDQH-HOpRunHwWrZCqvpLUToMXMvn-0JuKqUIlL5lRtngsqH2Uyc-LDyk_KYovQPWctNpEEgateW__c_vgmN_SZJODeEVvq7Rn=s100',
-        banner_url: 'https://lh3.googleusercontent.com/a-cvJvGLRv7XfTiKBNrTIDF7hp-bP7CMes8n1SIIXhTLeD9wuSD6Kw-tLeaf7DGaQqYp0nghzb1BPvSIrbn2_MwtoY3JwBcCJtg17A8=h200',
+        banner_url: 'https://lh3.googleusercontent.com/1P7Ud7Bh0zp5ecoee641xHmeFVPQJvZTYSrPrlHaMLGUrIWYm7zITq1sAckh5V2yiSsKnBk5omqQ9RVRl4_lky9YB28rVLa-pKPemg=h200',
         unique_id: 'rektnews',
-        category: 'art'
+        category: 'realEstate'
     },
     {
         id: 7,
@@ -54,5 +54,13 @@ export const HOT_COLLECTIONS = [
         banner_url: 'https://lh3.googleusercontent.com/fR6ZSaUkEAA4P4Z71SyipyhDM4tayiuv7xzSDPx0kJ94yb_Elc3uVm7_evbTcGQLBEyo72TeBymljkxtfjvEU9Fz3sKDM6-rCYUo=h200',
         unique_id: 'skeleton',
         category: 'art'
+    },
+    {
+        id: 8,
+        name: 'BCCG',
+        avatar_url: 'https://lh3.googleusercontent.com/lcpoI_5KaLJO8LA6Y0dx42FyTOvZne-tW4EKtoD9UdL6Vdk2UANPwo531EWSslwySarGdu3C9shBAJQsyhoasCa1=s100',
+        banner_url: 'https://lh3.googleusercontent.com/YuIwGkeOwa48_qPfter8yOZHY53blID-_M-Y1PfCWDaJ1giXdCv_K6CLZCRQ5jIsTv1SX9zGQuKeHmLreo-j3RqYAQ=h200',
+        unique_id: '86A9CD',
+        category: 'realEstate'
     }
 ]

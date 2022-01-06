@@ -178,15 +178,15 @@ const Header = function () {
                         <div className='item-dropdown'>
                           <div className="dropdown" onClick={closeMenu1}>
                             <NavLink to="/metasaltTokens" onClick={() => btn_icon(!showmenu)}>METASALT </NavLink>
-                            <NavLink to="/art" onClick={() => btn_icon(!showmenu)}>Art</NavLink>
-                            <NavLink to="/boats" onClick={() => btn_icon(!showmenu)}>Boats</NavLink>
-                            <NavLink to="/cars" onClick={() => btn_icon(!showmenu)}>Cars</NavLink>
-                            <NavLink to="/fashion" onClick={() => btn_icon(!showmenu)}>Fashion</NavLink>
-                            <NavLink to="/jewelery" onClick={() => btn_icon(!showmenu)}>Jewelry</NavLink>
-                            <NavLink to="/planes" onClick={() => btn_icon(!showmenu)}>Planes</NavLink>
-                            <NavLink to="/realEstate" onClick={() => btn_icon(!showmenu)}>Real Estate</NavLink>
-                            <NavLink to="/watches" onClick={() => btn_icon(!showmenu)}>Watches</NavLink>
-                            <NavLink to="/wine" onClick={() => btn_icon(!showmenu)}>Wine</NavLink>
+                            <NavLink to="/collection/art" onClick={() => btn_icon(!showmenu)}>Art</NavLink>
+                            <NavLink to="/collection/boats" onClick={() => btn_icon(!showmenu)}>Boats</NavLink>
+                            <NavLink to="/collection/cars" onClick={() => btn_icon(!showmenu)}>Cars</NavLink>
+                            <NavLink to="/collection/fashion" onClick={() => btn_icon(!showmenu)}>Fashion</NavLink>
+                            <NavLink to="/collection/jewelery" onClick={() => btn_icon(!showmenu)}>Jewelry</NavLink>
+                            <NavLink to="/collection/planes" onClick={() => btn_icon(!showmenu)}>Planes</NavLink>
+                            <NavLink to="/collection/realEstate" onClick={() => btn_icon(!showmenu)}>Real Estate</NavLink>
+                            <NavLink to="/collection/watches" onClick={() => btn_icon(!showmenu)}>Watches</NavLink>
+                            <NavLink to="/collection/wine" onClick={() => btn_icon(!showmenu)}>Wine</NavLink>
                           </div>
                         </div>
                       )}
@@ -293,15 +293,15 @@ const Header = function () {
                         <div className='item-dropdown'>
                           <div className="dropdown" onClick={closeMenu1}>
                             <NavLink to="/metasaltTokens">METASALT Tokens</NavLink>
-                            <NavLink to="/art">Art</NavLink>
-                            <NavLink to="/boats">Boats</NavLink>
-                            <NavLink to="/carexplores">Cars</NavLink>
-                            <NavLink to="/fashion">Fashion</NavLink>
-                            <NavLink to="/jewelry">Jewelry</NavLink>
-                            <NavLink to="/planes">Planes</NavLink>
-                            <NavLink to="/realEstate">Real Estate</NavLink>
-                            <NavLink to="/watches">Watches</NavLink>
-                            <NavLink to="/wine">Wine</NavLink>
+                            <NavLink to="/collection/art">Art</NavLink>
+                            <NavLink to="/collection/boats">Boats</NavLink>
+                            <NavLink to="/collection/cars">Cars</NavLink>
+                            <NavLink to="/collection/fashion">Fashion</NavLink>
+                            <NavLink to="/collection/jewelry">Jewelry</NavLink>
+                            <NavLink to="/collection/planes">Planes</NavLink>
+                            <NavLink to="/collection/realEstate">Real Estate</NavLink>
+                            <NavLink to="/collection/watches">Watches</NavLink>
+                            <NavLink to="/collection/wine">Wine</NavLink>
                           </div>
                         </div>
                       )}
